@@ -1,0 +1,8 @@
+user\Patient.class
+user\Admin.class
+userManagementSystem\UserManager.class
+user\UserType.class
+com\mycompany\driverrumahsakit\DriverRumahSakit.class
+user\DoctorType.class
+user\Doctor.class
+user\User.class
