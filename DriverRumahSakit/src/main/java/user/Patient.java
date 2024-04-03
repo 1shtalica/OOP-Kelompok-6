@@ -35,4 +35,13 @@ public class Patient extends User {
     }
     
     
+    public void updatePatient(String ID, int age, String username, String phone, UserType type, String email){
+        setUsername(username);
+        setPhoneNumber(phone);
+        setUserType(type);
+        setEmail(email);
+        this.setPatientID(patientID);
+        this.setAge(age);
+    }
+    
 }
