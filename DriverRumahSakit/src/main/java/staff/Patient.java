@@ -9,47 +9,47 @@ package staff;
  * @author adria
  */
 public class Patient {
-    private String nama;
-    private String alamat;
-    private String kontak;
-    private String asuransi;
+    private String name;
+    private String address;
+    private String contact;
+    private String insurance;
     
-    public Patient(String nama, String alamat, String kontak, String asuransi) {
-        this.nama = nama;
-        this.alamat = alamat;
-        this.kontak = kontak;
-        this.asuransi = asuransi;
+    public Patient(String name, String address, String contact, String insurance) {
+        this.name = name;
+        this.address = address;
+        this.contact = contact;
+        this.insurance = insurance;
     }
     
-    public String getNama() {
-        return this.nama;
+    public String getName() {
+        return this.name;
     }
     
-    public String getAlamat() {
-        return this.alamat;
+    public String getAddress() {
+        return this.address;
     }
     
-    public String getKontak() {
-        return this.kontak;
+    public String getContact() {
+        return this.contact;
     }
     
-    public String getAsuransi() {
-        return this.asuransi;
+    public String getInsurance() {
+        return this.insurance;
     }
     
-    public void setNama(String nama) {
-        this.nama = nama;
+    public void setName(String name) {
+        this.name = name;
     }
     
-    public void setAlamat(String alamat) {
-        this.alamat = alamat;
+    public void setAddress(String address) {
+        this.address = address;
     }
     
-    public void setKontak(String kontak) {
-        this.kontak = kontak;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
     
-    public void setAsuransi(String asuransi) {
-        this.asuransi = asuransi;
+    public void setInsurance(String insurance) {
+        this.insurance = insurance;
     }
 }
