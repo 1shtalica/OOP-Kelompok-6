@@ -4,6 +4,8 @@
  */
 package user;
 
+import java.util.Random;
+
 /**
  *
  * @author kevin
@@ -11,11 +13,24 @@ package user;
 public class Admin extends User {
     private String adminID;
 
-    public Admin(String adminID, String username, String phoneNumber, UserType userType, String email) {
+    public Admin( String username, String phoneNumber, UserType userType, String email) {
         super(username, phoneNumber, userType,email);
-        this.adminID = adminID;
+        this.adminID = generateAdminID();
     }
 
+    
+     private String generateAdminID() {
+        Random random = new Random();
+        StringBuilder adminIDBuilder = new StringBuilder();
+
+        // Menghasilkan lima angka acak
+        for (int i = 0; i < 5; i++) {
+            adminIDBuilder.append(random.nextInt(10)); // Menambahkan angka acak ke StringBuilder
+        }
+
+        return adminIDBuilder.toString(); // Mengembalikan ID admin dalam bentuk string
+    }
+    
     public String getAdminID() {
         return adminID;
     }
