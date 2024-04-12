@@ -16,9 +16,6 @@ public class DriverRumahSakit {
         UserManager userManager = new UserManager();
         
         
-        userManager.registerPatient();
-        
-        
-        userManager.login();
+        userManager.displayMenu();
     }
 }
