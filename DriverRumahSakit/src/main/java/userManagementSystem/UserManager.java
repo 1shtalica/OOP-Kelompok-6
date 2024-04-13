@@ -5,12 +5,11 @@
 package userManagementSystem;
 
 
-import java.util.HashMap;
+import java.util.*;
+
 import user.User;
 
-import java.util.Map;
-import java.util.Scanner;
-import java.util.UUID;
+import user.HospitalSystem;
 import user.Admin;
 import user.Patient;
 import user.UserType;
@@ -168,7 +167,7 @@ public class UserManager {
 
         switch (option) {
             case 1:
-       
+                ManagePatient(new HospitalSystem(), scanner);
                 break;
             case 2:
                 loggedIn = false; // Set loggedIn menjadi false agar loop berhenti
@@ -178,6 +177,67 @@ public class UserManager {
                 System.out.println("Invalid option. Please choose again.");
         }
     }
+}
+
+public void ManagePatient(HospitalSystem hospitalSystem, Scanner scanner ) {
+    int input;
+    do {
+        List<Patient> patients = hospitalSystem.getPatients();
+        System.out.println("--------------------------------------------");
+        System.out.println("|                   Patients                |");
+        System.out.println("---------------------------------------------");
+        System.out.println("1. Add Patient");
+        System.out.println("2. List of patients");
+        System.out.println("3. Removed Personal Data");
+        System.out.println("0. Back to Menu");
+        System.out.print("Select an Option: ");
+
+        input = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (input) {
+            case 1 -> {
+                System.out.print("Enter patient's Username: ");
+                String username = scanner.nextLine();
+                System.out.print("Enter patient's age: ");
+                int age = scanner.nextInt();
+                scanner.nextLine(); // consume the newline
+                System.out.print("Enter patient's PatientID: ");
+                String patientID = scanner.nextLine();
+                System.out.print("Enter patient's phoneNumber: ");
+                String phoneNumber = scanner.nextLine();
+                System.out.print("Enter patient's userType: ");
+                String userType = scanner.nextLine();
+                System.out.print("Enter patient's email: ");
+                String email = scanner.nextLine();
+                Patient patient = new Patient(age, patientID, username, phoneNumber, UserType.valueOf(userType), email);
+                hospitalSystem.addPatients(patient);
+                hospitalSystem.pendaftaranMedicalCheckUp(patient);
+            }
+            case 2 -> {
+                System.out.println("List of Patient: ");
+                hospitalSystem.getAll();
+            }
+            case 3 -> {
+                System.out.print("Enter patient's ID to remove: ");
+                String id = scanner.nextLine();
+
+                Patient patient = hospitalSystem.getPatientById(id);
+                if (patient != null) {
+                    hospitalSystem.removePatients(patient);
+                } else {
+                    System.out.println("No patient found with the provided ID.");
+                }
+
+            }
+            case 0 -> {
+                System.out.println("Returning to the main menu.");
+            }
+            default -> {
+                System.out.println("Invalid option. Please try again.");
+            }
+        }
+    } while (input != 0);
 }
     
     public void adminUserLogin(User user) {
