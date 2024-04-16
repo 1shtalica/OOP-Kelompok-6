@@ -10,7 +10,6 @@ import user.User;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.UUID;
-import patientManagementSystem.PatientManagement;
 import user.Admin;
 import user.Patient;
 import user.UserType;
@@ -239,8 +238,7 @@ public class UserManager {
             System.out.println("Welcome to rindang hospital");
             System.out.println("1. Login");
             System.out.println("2. Register");
-            System.out.println("3. Insert Data Patient");
-            System.out.println("4. Exit");
+            System.out.println("3. Exit");
             System.out.print("Choose an option: ");
             int option = scannerInt.nextInt();
             scannerInt.nextLine();
@@ -253,55 +251,6 @@ public class UserManager {
                     registerPatient();
                     break;
                 case 3:
-                    Scanner scanner = new Scanner(System.in);
-                    PatientManagement patientList = null;
-
-                    boolean continueList = true;
-                    while (continueList) {
-                        System.out.println("Choose Options. 1) insert data patient. 2) See data patient : ");
-                        int options = scanner.nextInt();
-                        scanner.nextLine();
-
-                        if (options == 1) {
-                            System.out.print("Enter Nurse Name: ");
-                            String nurseName = scanner.nextLine();
-
-                            patientList = new PatientManagement(nurseName);
-
-                            boolean continueInput = true;
-                            while (continueInput) {
-                                System.out.println("Enter details for Patient:");
-                                System.out.print("Name: ");
-                                String name = scanner.nextLine();
-                                System.out.print("Address: ");
-                                String address = scanner.nextLine();
-                                System.out.print("Contact: ");
-                                String contact = scanner.nextLine();
-                                System.out.print("Insurance: ");
-                                String insurance = scanner.nextLine();
-
-                                staff.Patient patient = new staff.Patient(name, address, contact, insurance);
-                                patientList.insertPatient(patient);
-
-                                System.out.print("Do you want to add another patient? (yes/no): ");
-                                String input = scanner.nextLine();
-                                if (!input.equalsIgnoreCase("yes")) {
-                                    continueInput = false;
-                                }
-                            }
-                        } else {
-                            if (patientList != null) {
-                                System.out.println("\nList of Patients:");
-                                System.out.println("Name Nurse : " + patientList.getNurse());
-                                patientList.listPatients();
-                            } else {
-                                System.out.println("No patient data available.");
-                            }
-                        }
-                    }
-
-                    scanner.close();
-                case 4:
                     exit = true;
                     System.out.println("Thank you for using User Management System. Goodbye!");
                     break;
