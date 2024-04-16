@@ -38,4 +38,15 @@ public class Admin extends User {
     public void setAdminID(String adminID) {
         this.adminID = adminID;
     }
+        public void updateAdminInfo(String adminID, String username, String phone, String email) {
+
+
+        setAdminID(adminID);
+        setUsername(username);
+        setPhoneNumber(phone);
+        setEmail(email);
+        
+        //bisa di log
+    }
+
 }

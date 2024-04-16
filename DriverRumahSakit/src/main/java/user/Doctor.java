@@ -40,8 +40,23 @@ public class Doctor extends User{
         this.age = age;
     }
 
-    public void setDoctorType(DoctorType doctorType) {
+     public void setDoctorType(DoctorType doctorType) {
         this.doctorType = doctorType;
+    }
+    
+        public void updateDoctorInfo(String doctorID, int age, DoctorType doctorType, String username, String phone, String email) {
+        
+        
+
+        setDoctorID(doctorID);
+        setAge(age);
+        setDoctorType(doctorType);
+        
+        setUsername(username);
+        setPhoneNumber(phone);
+        setEmail(email);
+        
+        //bisa di log
     }
     
     
