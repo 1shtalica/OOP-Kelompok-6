@@ -159,7 +159,7 @@ public class UserManager {
     while (loggedIn) {
         System.out.println("You are logged in as " + user.getUserType());
         System.out.println("Welcome, " + user.getUsername());
-        System.out.println("1. Edit username");
+        System.out.println("1. Add Data");
         System.out.println("2. Logout");
         System.out.print("Choose an option: ");
         int option = scannerInt.nextInt();
@@ -167,9 +167,11 @@ public class UserManager {
 
         switch (option) {
             case 1:
-                ManagePatient(new HospitalSystem(), scanner);
+               ManagePatient(new HospitalSystem(), scanner);
                 break;
             case 2:
+               break;
+            case 3:
                 loggedIn = false; // Set loggedIn menjadi false agar loop berhenti
                 System.out.println("Logout successful!");
                 break;
