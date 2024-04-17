@@ -36,6 +36,16 @@ public class Patient extends User {
     public void setAge(int age) {
         this.age = age;
     }
+    public String toString() {
+        return "Data Diri:\n" +
+                "Username: " + getUsername() + "\n" +
+                "Nomor Telepon: " + getPhoneNumber() + "\n" +
+                "Tipe Pengguna: " + getUserType() + "\n" +
+                "Email: " + getEmail() + "\n" +
+                "ID Pasien: " + patientID + "\n" +
+                "Umur: " + age;
+    }
+    
 
     public void addMcu(String date, String disease, String result) {
         PatientMcu data = new PatientMcu(date, disease, result);
