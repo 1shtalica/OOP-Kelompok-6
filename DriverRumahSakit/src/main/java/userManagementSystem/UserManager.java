@@ -4,16 +4,13 @@
  */
 package userManagementSystem;
 
+
 import java.util.HashMap;
-
-import java.util.*;
-
-import user.User;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.UUID;
-import user.HospitalSystem;
 import user.Admin;
+import user.Doctor;
+import user.HospitalSystem;
 import user.Patient;
 import user.UserType;
 
@@ -22,168 +19,238 @@ import user.UserType;
  * @author kevin
  */
 public class UserManager {
-
-    private Map<User, String> userCredentials;
+    private Map<Patient, String> patients;
+    private Map<Admin, String> admins;
+    private Map<Doctor, String> doctors;
     private Scanner scanner;
     private Scanner scannerInt;
 
-    public UserManager() {
-        this.userCredentials = new HashMap<>();
+    
+   
+    public void adminMenu(Admin admin){
+        Scanner scannerInt = new Scanner(System.in);
+        int choice = 0;
+        
+        while(choice != 4){
+
+            System.out.println("welcome" +admin.getUsername()+ " to rindang hospital");
+            System.out.println("you are login as "+admin.getUserType());
+            System.out.println("1. add new patient");
+            System.out.println("2. add new doctor");
+            System.out.println("3. add new admin");
+            
+            
+            System.out.println("name: "+admin.getName());
+            System.out.println("email: "+admin.getEmail());
+            System.out.println("id: "+admin.getAdminID());
+            System.out.println("phonenumber: "+admin.getPhoneNumber());
+            System.out.println("username: "+admin.getUsername());
+            
+            
+            //tambahanin disini sesuai dengan fitur masing masing
+            System.out.println("4. logout");
+            System.out.print("Choose an option: ");
+            choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice) {
+                case 1:
+                patients = admin.addNewPatient(patients);
+                break;
+                case 2:
+                doctors = admin.addNewDoctor(doctors);
+                break;
+                
+               
+                case 3:
+                 admins = admin.addNewAdmin(admins);
+                break;
+                case 4:                            
+                System.out.println("Logout successful!");
+                break;
+                default:
+                System.out.println("Invalid option. Please choose again.");
+        }
+        
+        
+            
+        }
+        
+    }
+    public void patientMenu(Patient patient){
+        Scanner scannerInt = new Scanner(System.in);
+        int choice = 0;
+        
+        while(choice != 4){
+            
+            System.out.println("name: "+patient.getName());
+            System.out.println("address: "+patient.getAddress());
+            System.out.println("birtdate: "+patient.getBirtDate());
+            System.out.println("email: "+patient.getEmail());
+            System.out.println("address: "+patient.getPatientID());
+            System.out.println("phone: "+patient.getPhoneNumber());
+            System.out.println("username: "+patient.getUsername());
+            System.out.println("bloodtype: "+patient.getBloodType());
+            System.out.println("gender: "+patient.getGender());
+            System.out.println("type: "+patient.getUserType());
+            
+
+            System.out.println("welcome" +patient.getUsername()+ " to rindang hospital");
+            System.out.println("you are login as "+patient.getUserType());
+            System.out.println("1. ");
+            System.out.println("2. ");
+            System.out.println("3. ");
+            
+            //tambahanin disini sesuai dengan fitur masing masing
+            System.out.println("4. logout");
+            System.out.print("Choose an option: ");
+            choice = scanner.nextInt();
+            scanner.nextLine();
+            //tambahanin disini sesuai dengan fitur masing masing
+            switch (choice) {
+                case 1:
+                
+                break;
+                case 2:
+                
+                break;
+                
+               
+                case 3:
+                 
+                break;
+                case 4:                            
+                System.out.println("Logout successful!");
+                break;
+                default:
+                System.out.println("Invalid option. Please choose again.");
+        }
+        
+        
+            
+        }
+    }
+    public void doctorMenu(Doctor doctor){
+        Scanner scannerInt = new Scanner(System.in);
+        int choice = 0;
+        
+        
+        System.out.println("address: "+doctor.getAddress());
+        System.out.println("birtdate: "+doctor.getBirtDate());
+        System.out.println("id: "+doctor.getDoctorID());
+        System.out.println("email: "+doctor.getEmail());
+        System.out.println("name: "+doctor.getName());
+        System.out.println("phonenumber: "+doctor.getPhoneNumber());
+        System.out.println("username: "+doctor.getUsername());
+        System.out.println("doctor type: "+doctor.getDoctorType());
+        System.out.println("gender: "+doctor.getGender());
+        System.out.println("user type: "+doctor.getUserType());
+        
+        while(choice != 4){
+
+            System.out.println("welcome" +doctor.getUsername()+ " to rindang hospital");
+            System.out.println("you are login as "+doctor.getUserType());
+            System.out.println("1. ");
+            System.out.println("2. ");
+            System.out.println("3. ");
+            
+            //tambahanin disini sesuai dengan fitur masing masing
+            System.out.println("4. logout");
+            System.out.print("Choose an option: ");
+            choice = scanner.nextInt();
+            scanner.nextLine();
+            //tambahanin disini sesuai dengan fitur masing masing
+            switch (choice) {
+                case 1:
+                
+                break;
+                case 2:
+                
+                break;
+                
+               
+                case 3:
+                 
+                break;
+                case 4:                            
+                System.out.println("Logout successful!");
+                break;
+                default:
+                System.out.println("Invalid option. Please choose again.");
+        }
+        
+        
+            
+        }
+    }
+     public UserManager() {
+        this.admins = new HashMap<>();
+        this.patients = new HashMap<>();
+        this.doctors = new HashMap<>();
         this.scanner = new Scanner(System.in);
         this.scannerInt = new Scanner(System.in);
-        Admin admin1 = new Admin("admin", "082312312", UserType.Admin, "admin1@gmail.com");
-        userCredentials.put(admin1, "admin123");
-
+         Admin admin1 = new Admin("admin","admin kevin","082312312",UserType.Admin,"admin1@gmail.com");
+        admins.put(admin1, "admin123");    
     }
-
-    private String generatePatientId() {
-        UUID uuid = UUID.randomUUID();
-        return uuid.toString();
-    }
-
-    public void registerPatient() {
-        System.out.println("Registration Form");
-        String username = "";
-        String email = "";
-        String phoneNumber = "";
-        int age;
-        String password;
-        String patientID = generatePatientId();
-        boolean existUser = true;
-
-        while (existUser) {
-            System.out.print("Enter your username: ");
-            username = scanner.nextLine();
-            existUser = false;
-            for (User existingUser : userCredentials.keySet()) {
-                if (existingUser.getUsername().equals(username)) {
-                    existUser = true;
-                    System.out.print("username already exist ");
-                    System.out.print("please enter another username ");
-                    break;
-                }
-
-            }
-        }
-        existUser = true;
-        while (existUser) {
-            System.out.print("Enter your Email: ");
-            email = scanner.nextLine();
-            existUser = false;
-            for (User existingUser : userCredentials.keySet()) {
-                if (existingUser.getEmail().equals(email)) {
-                    existUser = true;
-                    System.out.print("Email already exist ");
-                    System.out.print("please enter another Email ");
-                    break;
-                }
-
-            }
-        }
-        existUser = true;
-        while (existUser) {
-            System.out.print("Enter your phone number: ");
-            phoneNumber = scanner.nextLine();
-            existUser = false;
-            for (User existingUser : userCredentials.keySet()) {
-                if (existingUser.getPhoneNumber().equals(phoneNumber)) {
-                    existUser = true;
-                    System.out.print("phone number already exist ");
-                    System.out.print("please enter another phone number ");
-                    break;
-                }
-
-            }
-        }
-        System.out.print("enter your age: ");
-        age = scannerInt.nextInt();
-        System.out.print("enter your password: ");
-        password = scanner.nextLine();
-
-        Patient patient = new Patient(age, patientID, username, phoneNumber, UserType.Patient, email);
-        userCredentials.put(patient, password);
-
-    }
-
-    public void login() {
-        boolean loggedIn = false;
-        String username = "";
-        String password = "";
-
-        while (!loggedIn) {
-            System.out.println("Login Form");
-            System.out.println("Enter your username: ");
-            username = scanner.nextLine();
-            System.out.println("Enter your password: ");
-            password = scanner.nextLine();
-
-            for (Map.Entry<User, String> entry : userCredentials.entrySet()) {
-                User user = entry.getKey();
-                String storedPassword = entry.getValue();
-
-                if (user.getUsername().equals(username) && storedPassword.equals(password)) {
-                    System.out.println("Login successful!");
-
-                    loggedIn = true;
-
-                    // Menampilkan menu sesuai dengan tipe pengguna setelah login berhasil
-                    switch (user.getUserType()) {
-                        case Patient:
-                            patientUserLogin(user);
-                            break;
-                        case Admin:
-                            adminUserLogin(user);
-                            break;
-                        case Doctor:
-                            doctorUserLogin(user);
-                            break;
-                        default:
-                            System.out.println("Unknown user type.");
-                            break;
-                    }
-                    break;
-                }
-
-            }
-
-        if (!loggedIn) {
-            System.out.println("Invalid username or password. Please try again.");
-        }
-    }
-}
-    
-    
-   public void patientUserLogin(User user) {
-    boolean loggedIn = true;
-    while (loggedIn) {
-        System.out.println("You are logged in as " + user.getUserType());
-        System.out.println("Welcome, " + user.getUsername());
-        System.out.println("1. Add Data");
-        System.out.println("2. Logout");
+     
+     public void displayMenu(){
+         
+        Patient patient = new Patient(null,null,null,null,null,null,null,null,null,null);
+        Admin admin = new Admin(null,null,null,null,null);
+        Doctor doctor = new Doctor(null,null,null,null,null,null,null,null,null,null);
+        boolean running = true;
+            while (running) {
+        System.out.println("Menu:");
+        System.out.println("1. Register as Patient");
+        System.out.println("2. Login as Patient");
+        System.out.println("3. Login as Admin");
+        System.out.println("4. Login as Doctor");
+        System.out.println("5. Exit");
         System.out.print("Choose an option: ");
-        int option = scannerInt.nextInt();
-        scannerInt.nextLine(); // Membersihkan newline dari buffer
-
-        switch (option) {
+        int choice = scannerInt.nextInt();
+        scannerInt.nextLine(); 
+        switch (choice) {
             case 1:
-               ManagePatient(new HospitalSystem(), scanner);
+                patients = patient.Register(patients);
+                
                 break;
-            case 2:
-               break;
-            case 3:
-                loggedIn = false; // Set loggedIn menjadi false agar loop berhenti
-                System.out.println("Logout successful!");
+            case 2:               
+                Patient loggedInPatient = patient.login(patients);
+                if (loggedInPatient != null) {
+                     patientMenu(loggedInPatient);
+                }               
+                break;
+            case 3:             
+                Admin loggedInAdmin = admin.login(admins);
+                if (loggedInAdmin != null) {
+                     adminMenu(loggedInAdmin);
+                     
+                }
+                
+                break;
+            case 4:               
+                Doctor loggedInDoctor = doctor.login(doctors);
+                if (loggedInDoctor != null) {
+                     doctorMenu(loggedInDoctor);
+                }
+                
+                break;
+            case 5:
+                
+                running = false;
+                System.out.println("Exiting...");
                 break;
             default:
                 System.out.println("Invalid option. Please choose again.");
+                break;
         }
-    }
-}
-
-public void ManagePatient(HospitalSystem hospitalSystem, Scanner scanner ) {
+     }
+     }
+     
+     
+     public void ManagePatient(HospitalSystem hospitalSystem, Scanner scanner ) {
     int input;
     do {
-        List<Patient> patients = hospitalSystem.getPatients();
+        //List<Patient> patients = hospitalSystem.getPatients();
         System.out.println("--------------------------------------------");
         System.out.println("|                   Patients                |");
         System.out.println("---------------------------------------------");
@@ -197,7 +264,7 @@ public void ManagePatient(HospitalSystem hospitalSystem, Scanner scanner ) {
         scanner.nextLine();
 
         switch (input) {
-            case 1 -> {
+            case 1 : {
                 System.out.print("Enter patient's Username: ");
                 String username = scanner.nextLine();
                 System.out.print("Enter patient's age: ");
@@ -211,15 +278,15 @@ public void ManagePatient(HospitalSystem hospitalSystem, Scanner scanner ) {
                 String userType = scanner.nextLine();
                 System.out.print("Enter patient's email: ");
                 String email = scanner.nextLine();
-                Patient patient = new Patient(age, patientID, username, phoneNumber, UserType.valueOf(userType), email);
-                hospitalSystem.addPatients(patient);
-                hospitalSystem.pendaftaranMedicalCheckUp(patient);
+                //Patient patient = new Patient(age, patientID, username, phoneNumber, UserType.valueOf(userType), email);
+                //hospitalSystem.addPatients(patient);
+                //hospitalSystem.pendaftaranMedicalCheckUp(patient);
             }
-            case 2 -> {
+            case 2 : {
                 System.out.println("List of Patient: ");
                 hospitalSystem.getAll();
             }
-            case 3 -> {
+            case 3 : {
                 System.out.print("Enter patient's ID to remove: ");
                 String id = scanner.nextLine();
 
@@ -231,100 +298,14 @@ public void ManagePatient(HospitalSystem hospitalSystem, Scanner scanner ) {
                 }
 
             }
-            case 0 -> {
+            case 0 : {
                 System.out.println("Returning to the main menu.");
             }
-            default -> {
+            default : {
                 System.out.println("Invalid option. Please try again.");
             }
         }
     } while (input != 0);
 }
-    
-    public void adminUserLogin(User user) {
-        boolean loggedIn = true;
-        while (loggedIn) {
-            System.out.println("You are logged in as " + user.getUserType());
-            System.out.println("Welcome, " + user.getUsername());
-            System.out.println("1. Add admin");
-            System.out.println("2. Add doctor");
-            System.out.println("3. Add patient");
-            System.out.println("4. Logout");
-            System.out.print("Choose an option: ");
-            int option = scannerInt.nextInt();
-            scannerInt.nextLine(); // Membersihkan newline dari buffer
-
-            switch (option) {
-                case 1:
-                    // Implementasi penambahan admin
-                    break;
-                case 2:
-                    // Implementasi penambahan dokter
-                    break;
-                case 3:
-                    // Implementasi penambahan pasien
-                    break;
-                case 4:
-                    loggedIn = false; // Set loggedIn menjadi false agar loop berhenti
-                    System.out.println("Logout successful!");
-                    break;
-                default:
-                    System.out.println("Invalid option. Please choose again.");
-            }
-        }
-    }
-
-    public void doctorUserLogin(User user) {
-        boolean loggedIn = true;
-        while (loggedIn) {
-            System.out.println("You are logged in as " + user.getUserType());
-            System.out.println("Welcome, " + user.getUsername());
-            System.out.println("1. Edit username");
-            System.out.println("2. Logout");
-            System.out.print("Choose an option: ");
-            int option = scannerInt.nextInt();
-            scannerInt.nextLine(); // Membersihkan newline dari buffer
-
-            switch (option) {
-                case 1:
-                    // Implementasi edit username
-                    break;
-                case 2:
-                    loggedIn = false; // Set loggedIn menjadi false agar loop berhenti
-                    System.out.println("Logout successful!");
-                    break;
-                default:
-                    System.out.println("Invalid option. Please choose again.");
-            }
-        }
-    }
-
-    public void displayMenu() {
-        boolean exit = false;
-        while (!exit) {
-            System.out.println("Welcome to rindang hospital");
-            System.out.println("1. Login");
-            System.out.println("2. Register");
-            System.out.println("3. Exit");
-            System.out.print("Choose an option: ");
-            int option = scannerInt.nextInt();
-            scannerInt.nextLine();
-
-            switch (option) {
-                case 1:
-                    login();
-                    break;
-                case 2:
-                    registerPatient();
-                    break;
-                case 3:
-                    exit = true;
-                    System.out.println("Thank you for using User Management System. Goodbye!");
-                    break;
-                default:
-                    System.out.println("Invalid option. Please choose again.");
-            }
-        }
-    }
 
 }
