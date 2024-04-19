@@ -21,6 +21,8 @@ public class Patient extends User {
    private UserGender gender;
    private String address;
    private UserBloodType bloodType;
+    private PatientMcu[] mcu;
+     private int i = 0;
     public Patient(String name,String patientID,String username, String phoneNumber, UserType userType, String email,String birtDate, UserGender userGender, String address, UserBloodType bloodType) {
         super(username,name ,phoneNumber, userType, email);
         this.patientID = patientID;
@@ -249,6 +251,32 @@ public class Patient extends User {
         Patient patient = new Patient(fullName,patientID,username,phoneNumber,UserType.Patient,email,birthDateString,userGender,patientAddress,userBloodType);
         userCredentials.put(patient, password);
         return userCredentials;
+    }
+    
+    public String toString() {
+        return "Data Diri:\n" +
+                "Username: " + getUsername() + "\n" +
+                "Nomor Telepon: " + getPhoneNumber() + "\n" +
+                "Tipe Pengguna: " + getUserType() + "\n" +
+                "Email: " + getEmail() + "\n" +
+                "ID Pasien: " + patientID + "\n";
+                
+    }
+    
+     public void addMcu(String date, String disease, String result) {
+        PatientMcu data = new PatientMcu(date, disease, result);
+        this.mcu[this.i] = data;
+        this.i++;
+    }
+     
+     public void editMcu(int index, String date, String disease, String result) {
+        if (index >= 0 && index < this.i) {
+            this.mcu[index].setDate(date);
+            this.mcu[index].setDisease(disease);
+            this.mcu[index].setResult(result);
+        } else {
+            System.out.println("MCU not valid");
+        }
     }
     
 }

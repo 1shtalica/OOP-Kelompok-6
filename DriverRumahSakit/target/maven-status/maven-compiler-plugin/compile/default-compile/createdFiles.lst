@@ -1,3 +1,4 @@
+user\User.class
 user\Patient.class
 user\Admin.class
 userManagementSystem\UserManager.class
@@ -7,4 +8,3 @@ com\mycompany\driverrumahsakit\DriverRumahSakit.class
 user\DoctorType.class
 user\UserGender.class
 user\Doctor.class
-user\User.class

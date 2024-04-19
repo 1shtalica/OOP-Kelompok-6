@@ -1,9 +1,14 @@
 D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Patient.java
+D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\model\Config.java
+D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\GuiInsertPatient.java
+D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\PatientMcu.java
+D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\UserGender.java
 D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\User.java
 D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\userManagementSystem\UserManager.java
+D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Hospital.java
+D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\HospitalSystem.java
 D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Doctor.java
 D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Admin.java
-D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\UserGender.java
 D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\com\mycompany\driverrumahsakit\DriverRumahSakit.java
 D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\UserBloodType.java
 D:\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\DoctorType.java
