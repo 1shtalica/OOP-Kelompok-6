@@ -253,15 +253,26 @@ public class Patient extends User {
         return userCredentials;
     }
     
-    public String toString() {
-        return "Data Diri:\n" +
-                "Username: " + getUsername() + "\n" +
-                "Nomor Telepon: " + getPhoneNumber() + "\n" +
-                "Tipe Pengguna: " + getUserType() + "\n" +
-                "Email: " + getEmail() + "\n" +
-                "ID Pasien: " + patientID + "\n";
-                
+    public void listofPatient(Map<Patient, String> userCredentials) {
+    if (userCredentials.isEmpty()) {
+        System.out.println("No patients have been registered yet.");
+    } else {
+        System.out.println("List of registered patients:");
+        for (Patient patient : userCredentials.keySet()) {
+            System.out.println("----------------------------");
+            System.out.println("Patient ID: " + patient.getPatientID());
+            System.out.println("Full Name: " + patient.getName());
+            System.out.println("Username: " + patient.getUsername());
+            System.out.println("Email: " + patient.getEmail());
+            System.out.println("Phone Number: " + patient.getPhoneNumber());
+            System.out.println("Birth Date: " + patient.getBirtDate());
+            System.out.println("Gender: " + patient.getGender().name());
+            System.out.println("Address: " + patient.getAddress());
+            System.out.println("Blood Type: " + patient.getBloodType().name());
+            System.out.println("----------------------------");
+        }
     }
+}
     
 
     public void addMcu(String date, String disease, String result) {
