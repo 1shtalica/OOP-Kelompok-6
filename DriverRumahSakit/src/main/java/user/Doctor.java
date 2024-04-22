@@ -4,6 +4,7 @@
  */
 package user;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -11,7 +12,8 @@ import java.util.Scanner;
  *
  * @author kevin
  */
-public class Doctor extends User{
+public class Doctor extends User {
+
     private String doctorID;
     private String name;
     private DoctorType doctorType;
@@ -19,8 +21,8 @@ public class Doctor extends User{
     private UserGender gender;
     private String address;
 
-    public Doctor(String doctorID,String name ,DoctorType doctorType, String username, String phoneNumber, UserType userType, String email, String birthDate,UserGender gender, String address) {
-        super(username, name ,phoneNumber, userType, email);
+    public Doctor(String doctorID, String name, DoctorType doctorType, String username, String phoneNumber, UserType userType, String email, String birthDate, UserGender gender, String address) {
+        super(username, name, phoneNumber, userType, email);
         this.doctorID = doctorID;
         this.name = name;
         this.doctorType = doctorType;
@@ -36,8 +38,6 @@ public class Doctor extends User{
     public String getName() {
         return name;
     }
-
-    
 
     public DoctorType getDoctorType() {
         return doctorType;
@@ -59,8 +59,6 @@ public class Doctor extends User{
         this.doctorID = doctorID;
     }
 
-    
-
     public void setDoctorType(DoctorType doctorType) {
         this.doctorType = doctorType;
     }
@@ -80,31 +78,47 @@ public class Doctor extends User{
     public void setAddress(String address) {
         this.address = address;
     }
-    
-    
-    public Doctor login(Map<Doctor, String> userCredentials) {
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Enter username: ");
-    String username = scanner.nextLine();
-    
-    System.out.print("Enter password: ");
-    String password = scanner.nextLine();
-    
-    
-    for (Map.Entry<Doctor, String> entry : userCredentials.entrySet()) {
-        Doctor user = entry.getKey();
-        String storedPassword = entry.getValue();
-        
-        
-        if (user.getUsername().equals(username) && storedPassword.equals(password)) {
+
+    public void addMcu(Patient patient, String date, String disease, String result) {
+        PatientMcu data = new PatientMcu(date, disease, result);
+        patient.getMcu().add(data);
+    }
+
+    public void editMcu(Patient patient, int index, String date, String disease, String result) {
+        List<PatientMcu> mcuList = patient.getMcu();
+        if (index >= 0 && index < mcuList.size()) {
+            PatientMcu mcuToUpdate = mcuList.get(index);
+
+            mcuToUpdate.setDate(date);
+            mcuToUpdate.setDisease(disease);
+            mcuToUpdate.setResult(result);
             
-            System.out.println("Login successful!");
-            return user;
+            System.out.println("Success to edit");
+        } else {
+            System.out.println("Indeks not valid.");
         }
     }
-    
-    
-    System.out.println("Login failed. Incorrect username or password.");
-    return null;
-}
+
+    public Doctor login(Map<Doctor, String> userCredentials) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
+
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+
+        for (Map.Entry<Doctor, String> entry : userCredentials.entrySet()) {
+            Doctor user = entry.getKey();
+            String storedPassword = entry.getValue();
+
+            if (user.getUsername().equals(username) && storedPassword.equals(password)) {
+
+                System.out.println("Login successful!");
+                return user;
+            }
+        }
+
+        System.out.println("Login failed. Incorrect username or password.");
+        return null;
+    }
 }

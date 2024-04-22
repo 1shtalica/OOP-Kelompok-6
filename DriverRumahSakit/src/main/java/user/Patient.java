@@ -6,6 +6,7 @@ package user;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.UUID;
@@ -17,8 +18,7 @@ import java.util.UUID;
 public class Patient extends User {
    private String patientID;
    
-    private PatientMcu[] mcu;
-    private int i = 0;
+   private List<PatientMcu> mcu;
    private String birtDate;
    private UserGender gender;
    private String address;
@@ -26,7 +26,6 @@ public class Patient extends User {
     public Patient(String name,String patientID,String username, String phoneNumber, UserType userType, String email,String birtDate, UserGender userGender, String address, UserBloodType bloodType) {
         super(username,name ,phoneNumber, userType, email);
         this.patientID = patientID;
-        
         this.birtDate = birtDate;
         this.gender = userGender;
         this.address = address;
@@ -50,7 +49,11 @@ public class Patient extends User {
     public String getAddress() {
         return address;
     }
-
+    
+    public List<PatientMcu> getMcu() {
+        return this.mcu;
+    }
+    
     public UserBloodType getBloodType() {
         return bloodType;
     }
@@ -263,21 +266,5 @@ public class Patient extends User {
                 
     }
     
-
-    public void addMcu(String date, String disease, String result) {
-        PatientMcu data = new PatientMcu(date, disease, result);
-        this.mcu[this.i] = data;
-        this.i++;
-    }
-
-    public void editMcu(int index, String date, String disease, String result) {
-        if (index >= 0 && index < this.i) {
-            this.mcu[index].setDate(date);
-            this.mcu[index].setDisease(disease);
-            this.mcu[index].setResult(result);
-        } else {
-            System.out.println("MCU not valid");
-        }
-    }
     
 }
