@@ -98,6 +98,20 @@ public class Doctor extends User {
             System.out.println("Indeks not valid.");
         }
     }
+    
+    public void seeAllPatient(Map<Patient, String> patient) {
+        for (Map.Entry<Patient, String> entry : patient.entrySet()) {
+            Patient key = entry.getKey();
+            System.out.println("id patient : " + key.getPatientID());
+            System.out.println("name : " + key.getName());
+            System.out.println("address : " + key.getAddress());
+            System.out.println("birth : " + key.getBirtDate());
+            System.out.println("phone number : " + key.getPhoneNumber());
+            System.out.println("email : " + key.getEmail());
+            System.out.println("blood type : " + key.getBloodType());
+            System.out.println("gender : " + key.getGender());
+        }
+    }
 
     public Doctor login(Map<Doctor, String> userCredentials) {
         Scanner scanner = new Scanner(System.in);

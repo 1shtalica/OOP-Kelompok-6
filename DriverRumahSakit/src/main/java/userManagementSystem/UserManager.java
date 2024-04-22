@@ -36,8 +36,10 @@ public class UserManager {
             System.out.println("1. add new patient");
             System.out.println("2. add new doctor");
             System.out.println("3. add new admin");
-            System.out.println("4. view all patient data");
-
+            System.out.println("4. add new admin");
+            System.out.println("5. view all patient data");
+            System.out.println("6. Exit");
+            
             System.out.println("name: " + admin.getName());
             System.out.println("email: " + admin.getEmail());
             System.out.println("id: " + admin.getAdminID());
@@ -60,6 +62,12 @@ public class UserManager {
                     admins = admin.addNewAdmin(admins);
                     break;
                 case 4:
+                    
+                    break;
+                case 5: 
+                    admin.seeAllPatient(patients);
+                    break;
+                case 6:
                     System.out.println("Logout successful!");
                     break;
                 default:
@@ -140,7 +148,7 @@ public class UserManager {
             System.out.println("welcome" + doctor.getUsername() + " to rindang hospital");
             System.out.println("you are login as " + doctor.getUserType());
             System.out.println("1. Add result mcu patient");
-            System.out.println("2. ");
+            System.out.println("2. View all patient data");
             System.out.println("3. ");
 
             //tambahanin disini sesuai dengan fitur masing masing
@@ -176,7 +184,7 @@ public class UserManager {
                     break;
 
                 case 2:
-
+                    doctor.seeAllPatient(patients);
                     break;
 
                 case 3:
