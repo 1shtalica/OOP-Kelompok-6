@@ -26,7 +26,7 @@ public class UserManager {
     private Map<Doctor, String> doctors;
     private Scanner scanner;
     private Scanner scannerInt;
-    EditSchedule edit = new EditSchedule(null, null, null, null, null, null, null, null);
+    EditSchedule edit = new EditSchedule(null, null, null, null, null, null, null);
 
     public void adminMenu(Admin admin) {
         HospitalSystem<Admin> hospitalSystem = new HospitalSystem<>(admin, patients, admins, doctors);
@@ -246,9 +246,9 @@ public class UserManager {
 
         Scanner scannerInt = new Scanner(System.in);
         HospitalSystem<Patient> hospitalSystem = new HospitalSystem<>(patient, patients, admins, doctors);
-        int choice = 0;
+        int choice = -1;
 
-        while (choice != 6) {
+        while (choice != 0) {
 
             System.out.println("welcome" + patient.getUsername() + " to rindang hospital");
             System.out.println("you are login as " + patient.getUserType());
@@ -257,6 +257,7 @@ public class UserManager {
             System.out.println("3. Remove Data ");
             System.out.println("4. View Doctor ");
             System.out.println("5. Book Of Appointment Patiens");
+            System.out.println("6. View schedule");
 
             //tambahanin disini sesuai dengan fitur masing masing
             System.out.println("0. logout");
@@ -293,16 +294,19 @@ public class UserManager {
                     }
                     break;
                 case 5:
-                    for (EditSchedule jadwal : edit.getScheduleList()) {
-                        jadwal.previewJadwalDokter();
-                    }
+                    edit.previewJadwalDokter();
+                
                     String id = scanner.nextLine();
-                    edit.addSchedulePatient(patient, id);
+                    edit.addSchedulePatient(patient, id, edit);
 
                     break;
-
+                case 6:
+                    edit.previewJadwalDokter();
+                    break;
                 case 0:
                     System.out.println("Logout successful!");
+                    choice = 0;
+                    
                     break;
                 default:
                     System.out.println("Invalid option. Please choose again.");

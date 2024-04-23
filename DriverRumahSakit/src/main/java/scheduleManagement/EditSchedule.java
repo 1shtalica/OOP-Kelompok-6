@@ -35,14 +35,14 @@ public class EditSchedule {
 
     Scanner scanner = new Scanner(System.in);
 
-    public EditSchedule(String idSchedule, Doctor varDoctor, String day, String workingHour, Patient[] varPatient, String status, List<Doctor> doctorList, List<EditSchedule> scheduleList) {
+    public EditSchedule(String idSchedule, Doctor varDoctor, String day, String workingHour, String status, List<Doctor> doctorList, List<EditSchedule> scheduleList) {
         this.idSchedule = generateScheduleID();
         this.varDoctor = varDoctor;
         this.day = day;
         this.workingHour = workingHour;
-        this.varPatient = varPatient;
+        this.varPatient = new Patient[20];
         this.status = status;
-        this.maxPatient = maxPatient;
+        this.maxPatient = 20;
         this.sumPatient = 0;
         this.specialization = specialization;
         this.doctorList = new ArrayList<>();
@@ -113,30 +113,35 @@ public class EditSchedule {
             } else {
                 
                 String workingHour = getWorkingHour();
-                EditSchedule jadwalBaru = new EditSchedule(generateScheduleID(), doctor, day, workingHour, null, null, doctorList, scheduleList);
+                EditSchedule jadwalBaru = new EditSchedule(generateScheduleID(), doctor, day, workingHour, null, doctorList, scheduleList);
                 scheduleList.add(jadwalBaru);
                 System.out.println("Jadwal dokter berhasil ditambahkan!");
             }
         }
     }
 
-    public void addSchedulePatient(Patient patient, String idSchedule) {
+    public void addSchedulePatient(Patient patient, String idSchedule, EditSchedule arr) {
         EditSchedule schedule = null;
-        for (EditSchedule jadwal : scheduleList) {
-            if (jadwal.idSchedule.equals(idSchedule)) {
+        for (EditSchedule jadwal : arr.scheduleList) {
+            if (jadwal.getIdSchedule().equals(idSchedule)) {
                 schedule = jadwal;
                 break;
             }
         }
+        
 
         if (patient == null) {
             System.out.println("Patient not found");
         } else {
-            if (schedule.getSumPatient() < schedule.getMaxPatient()) {
+            if (schedule != null && schedule.getSumPatient() < schedule.getMaxPatient()) {
                 schedule.getVarPatient()[schedule.getSumPatient()] = patient;
-                schedule.sumPatient++;
-            } else {
-                System.out.println("Patient is full");
+                schedule.setSumPatient(schedule.getSumPatient() + 1);
+                System.out.println("Patient " + patient.getName() + " added to schedule " + idSchedule);
+            } else if (schedule == null) {
+                System.out.println("null");
+            }
+            else { 
+                System.out.println("Patient is full or schedule not found");
             }
         }
     }
@@ -192,6 +197,10 @@ public class EditSchedule {
             System.out.println("Day: " + prevJadwal.day);
             System.out.println("Working Hour: " + prevJadwal.workingHour);
             System.out.println("");
+            if(prevJadwal.getSumPatient()>0){
+                for(int i =0; i < prevJadwal.getSumPatient(); i++)
+                System.out.println("nama : " + prevJadwal.getVarPatient()[i].getName());
+            }
         }
     }
 
