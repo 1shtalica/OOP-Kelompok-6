@@ -1,9 +1,0 @@
-user\User.class
-user\Patient.class
-user\Admin.class
-userManagementSystem\UserManager.class
-user\UserType.class
-userManagementSystem\UserManager$1.class
-com\mycompany\driverrumahsakit\DriverRumahSakit.class
-user\DoctorType.class
-user\Doctor.class
