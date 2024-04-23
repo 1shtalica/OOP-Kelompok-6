@@ -318,6 +318,20 @@ public class Admin extends User {
     return user;
      }
      
+     
+     
+     public void updateAdminData(String name,String phoneNumber,String email){
+         if (name != ""){
+             this.setName(name);
+         }
+         if (phoneNumber != ""){
+             this.setPhoneNumber(phoneNumber);
+         }
+         if (email != ""){
+             this.setEmail(email);
+         }
+     }
+     
 }
 
 

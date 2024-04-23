@@ -17,6 +17,8 @@ public class HospitalSystem<T extends User> {
         this.doctors = doctors;
     }
     
+    
+    
     public void removePatients(Patient patient) {
         patients.remove(patient);
         System.out.println("remove Data Succesfull");
@@ -67,4 +69,61 @@ public class HospitalSystem<T extends User> {
              System.out.println("username " + username + " Succesfull deleted" );
          }
     }
+    
+    
+    /*
+    Kodingan versi sebelum menjadi hasmhap
+    
+
+    public List<Patient> getPatients() {
+        return patients;
+    }
+
+    public void pendaftaranMedicalCheckUp(Patient patient) {
+        if (patients.contains(patient)) {
+            System.out.println("Pasien sudah melakukan pendaftaran untuk medical check up.");
+        } else {
+            System.out.println("Pasien belum terdaftar. Silakan lakukan pendaftaran terlebih dahulu.");
+        }
+    }
+
+    public Patient getPatientById(String id) {
+        for (Patient patient : patients) {
+            if (patient.getPatientID().equals(id)) {
+                return patient;
+            }
+        }
+        return null;
+    }
+
+    
+    public void resetPatientsId() {
+        int id = 1;
+        for (User user : patients) {
+            if (user instanceof Patient) {
+                Patient patient = (Patient) user;
+                patient.setPatientID(Integer.toString(id++));
+            }
+        }
+    }
+
+
+    @Override
+    public void addPatients(Patient patient) {
+        patients.add(patient);
+    }
+
+    @Override
+    public void removePatients(Patient patient) {
+        patients.remove(patient);
+        System.out.println("Removed -> " + patient);
+    }
+
+    public void getAll() {
+        for (Patient p : patients) {
+            System.out.println(p);
+        }
+    }
+    
+    */
 }

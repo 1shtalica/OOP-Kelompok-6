@@ -13,6 +13,7 @@ import user.Doctor;
 import user.HospitalSystem;
 import user.Patient;
 import user.UserType;
+import user.DataEditor;
 
 /**
  *
@@ -40,7 +41,7 @@ public class UserManager {
             System.out.println("2. add new doctor");
             System.out.println("3. Remove Patient");
             System.out.println("4. Remove doctor");
-            System.out.println("5. Update this data");
+            System.out.println("5. Update data");
             System.out.println("6. View Admin");
             System.out.println("7. View Patients");
             System.out.println("8. View Doctors");
@@ -70,7 +71,8 @@ public class UserManager {
                 hospitalSystem.deleteDoctorsData(username, doctors);
                 break;
                 case 5:
-                  // Farhan 
+                DataEditor<Admin> dataEditor = new DataEditor<>(admin, patients, admins, doctors);
+                dataEditor.input();
                 break;
                 case 6:
                   for(Admin admin1: admins.keySet()) {
@@ -136,7 +138,7 @@ public class UserManager {
             System.out.println("welcome" +patient.getUsername()+ " to rindang hospital");
             System.out.println("you are login as "+patient.getUserType());
             System.out.println("1. View Data ");
-            System.out.println("2. Update Data ");
+            System.out.println("2. Update Your Data ");
             System.out.println("3. Remove Data ");
             System.out.println("4. View Doctor ");
             System.out.println("5. Book Of Appointment Patiens");
@@ -152,7 +154,8 @@ public class UserManager {
                 patient.listofPatient(patients);
                 break;
                 case 2:
-                   // farhan 
+                DataEditor<Patient> patientEditor = new DataEditor<>(patient, null, null, null);
+                patientEditor.input();
                 break;
                     
                 case 3:
@@ -198,7 +201,7 @@ public class UserManager {
             System.out.println("welcome" +doctor.getUsername()+ " to rindang hospital");
             System.out.println("you are login as "+doctor.getUserType());
             System.out.println("1. View Data ");
-            System.out.println("2. Updated Data");
+            System.out.println("2. Update Your Data");
             System.out.println("3. View Pasien ");
             System.out.println("4. Book of  Appointment Doctors");
             
@@ -223,7 +226,9 @@ public class UserManager {
                 }
                 break;
                 case 2:
-                // farhan
+                DataEditor<Doctor> doctorEditor = new DataEditor<>(doctor, null, null, null);
+                doctorEditor.input();
+                    System.out.println(doctor.getDoctorType());
                 break;
                 
                 case 3:
@@ -319,4 +324,68 @@ public class UserManager {
      }
      }
      
+     /*
+     
+     Kodingan versi sebelumnya
+         public void ManagePatient(HospitalSystem hospitalSystem, Scanner scanner ) {
+    int input;
+    do {
+        //List<Patient> patients = hospitalSystem.getPatients();
+        System.out.println("--------------------------------------------");
+        System.out.println("|                   Patients                |");
+        System.out.println("---------------------------------------------");
+        System.out.println("1. Add Patient");
+        System.out.println("2. List of patients");
+        System.out.println("3. Removed Personal Data");
+        System.out.println("0. Back to Menu");
+        System.out.print("Select an Option: ");
+
+        input = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (input) {
+            case 1 : {
+                System.out.print("Enter patient's Username: ");
+                String username = scanner.nextLine();
+                System.out.print("Enter patient's age: ");
+                int age = scanner.nextInt();
+                scanner.nextLine(); // consume the newline
+                System.out.print("Enter patient's PatientID: ");
+                String patientID = scanner.nextLine();
+                System.out.print("Enter patient's phoneNumber: ");
+                String phoneNumber = scanner.nextLine();
+                System.out.print("Enter patient's userType: ");
+                String userType = scanner.nextLine();
+                System.out.print("Enter patient's email: ");
+                String email = scanner.nextLine();
+                //Patient patient = new Patient(age, patientID, username, phoneNumber, UserType.valueOf(userType), email);
+                //hospitalSystem.addPatients(patient);
+                //hospitalSystem.pendaftaranMedicalCheckUp(patient);
+            }
+            case 2 : {
+                System.out.println("List of Patient: ");
+                hospitalSystem.getAll();
+            }
+            case 3 : {
+                System.out.print("Enter patient's ID to remove: ");
+                String id = scanner.nextLine();
+
+                Patient patient = hospitalSystem.getPatientById(id);
+                if (patient != null) {
+                    hospitalSystem.removePatients(patient);
+                } else {
+                    System.out.println("No patient found with the provided ID.");
+                }
+
+            }
+            case 0 : {
+                System.out.println("Returning to the main menu.");
+            }
+            default : {
+                System.out.println("Invalid option. Please try again.");
+            }
+        }
+    } while (input != 0);
+}
+    */ 
 }
