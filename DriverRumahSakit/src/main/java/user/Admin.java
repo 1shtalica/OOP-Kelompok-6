@@ -242,19 +242,7 @@ public class Admin extends User {
     return user;
     }
      
-     public void seeAllPatient(Map<Patient, String> patient) {
-        for (Map.Entry<Patient, String> entry : patient.entrySet()) {
-            Patient key = entry.getKey();
-            System.out.println("id patient : " + key.getPatientID());
-            System.out.println("name : " + key.getName());
-            System.out.println("address : " + key.getAddress());
-            System.out.println("birth : " + key.getBirtDate());
-            System.out.println("phone number : " + key.getPhoneNumber());
-            System.out.println("email : " + key.getEmail());
-            System.out.println("blood type : " + key.getBloodType());
-            System.out.println("gender : " + key.getGender());
-        }
-    }
+     
      
      
      public Map<Admin, String> addNewAdmin(Map<Admin, String> user){
@@ -330,9 +318,22 @@ public class Admin extends User {
     return user;
      }
      
+     
+     
+     public void updateAdminData(String name,String phoneNumber,String email){
+         if (name != ""){
+             this.setName(name);
+         }
+         if (phoneNumber != ""){
+             this.setPhoneNumber(phoneNumber);
+         }
+         if (email != ""){
+             this.setEmail(email);
+         }
+     }
+     
 }
 
 
 
 
-    
