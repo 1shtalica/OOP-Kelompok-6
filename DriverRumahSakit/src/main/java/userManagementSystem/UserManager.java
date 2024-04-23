@@ -14,6 +14,7 @@ import user.HospitalSystem;
 import user.Patient;
 import user.UserType;
 import user.DataEditor;
+import scheduleManagement.EditSchedule;
 
 /**
  *
@@ -46,6 +47,7 @@ public class UserManager {
             System.out.println("7. View Patients");
             System.out.println("8. View Doctors");
             System.out.println("9. Delete this account");
+            System.out.println("10. Schedule Menu");
             
             
             //tambahanin disini sesuai dengan fitur masing masing
@@ -110,11 +112,126 @@ public class UserManager {
                        System.out.println("Gender: " + doctor.getGender());
                        System.out.println("Address: " + doctor.getAddress());
                        System.out.println("Doctor Type: " + doctor.getDoctorType()); 
+                       System.out.println("");
                     }
                 break;
                 case 9:
                  hospitalSystem.removeAdmins(admin);
                  choice = 0; 
+                break;
+                case 10:
+                    EditSchedule edit = new EditSchedule(null, null, null, null, null, null, null, null);
+                boolean exit = false;
+                  do {
+            System.out.println("===============Schedule Menu===============");
+            System.out.println("1. Doctor List");
+            System.out.println("2. Edit Doctor Schedule");
+            System.out.println("3. Schedule List");
+            System.out.println("0. Exit Schedule Menu");
+            System.out.print("Choose an option: ");
+            int pilihan = scanner.nextInt();
+
+            switch (pilihan) {
+                case 1:
+                    System.out.println("");
+                    System.out.println("Doctor List: ");
+                    System.out.println("");
+                    for(Doctor doctor: doctors.keySet()) {
+                       System.out.println("Username: " + doctor.getUsername());
+                       System.out.println("Full Name: " + doctor.getName());
+                       System.out.println("Doctor ID: " + doctor.getDoctorID());
+                       System.out.println("Phone Number: " + doctor.getPhoneNumber());
+                       System.out.println("Email: " + doctor.getEmail());
+                       System.out.println("Birth Date: " + doctor.getBirtDate());
+                       System.out.println("Gender: " + doctor.getGender());
+                       System.out.println("Address: " + doctor.getAddress());
+                       System.out.println("Doctor Type: " + doctor.getDoctorType()); 
+                    }
+                    break;
+                case 2:
+                    boolean back = false;
+                    String idD;
+                    String nameD;
+                    String day;
+                    String workingHour;
+                    String start, end;
+                    do{
+                    System.out.println("1. Add");
+                    System.out.println("2. Delete");
+                    System.out.println("3. Update");
+                    System.out.println("0. Exit");
+                    int x = scanner.nextInt();
+                    scanner.nextLine();
+                    
+                    switch(x){
+                        case 1:
+                            System.out.println("===============Add Schedule===============");
+                            System.out.println("Doctor List");
+                            for(Doctor doc1: doctors.keySet()) {       
+                        System.out.println("Doctor ID: " + doc1.getDoctorID());
+                        System.out.println("Username: " + doc1.getUsername());
+                        System.out.println("");
+                    }
+                            
+                            Doctor doctor = edit.viewSchedule(doctors);
+                            System.out.println("Monday");
+                            System.out.println("Tuesday");
+                            System.out.println("Wednesday");
+                            System.out.println("Thursday");
+                            System.out.println("Friday");
+                            System.out.println("Saturday");
+                            System.out.print("Enter day: ");
+                            day = scanner.nextLine(); 
+                            
+                            edit.addDoctorSchedule(doctor, day);
+                        break;
+                        case 2:
+                            System.out.println("===============Delete Schedule===============");
+                            System.out.println("");
+                            System.out.println("==========Schedule List==========");
+                            edit.previewJadwalDokter();
+                            
+                            System.out.print("Enter schedule id to remove: ");
+                            String inputID = scanner.nextLine();
+                            
+                            edit.deleteSchedule(inputID);
+                        break;
+                        case 3:
+                            System.out.println("===============Update Schedule===============");
+                            edit.previewJadwalDokter();
+                            
+                            System.out.print("Enter schedule id to update: ");
+                            String inputID2 = scanner.nextLine();
+                            
+                            edit.updateSchedule(inputID2);
+                            break;
+                        case 0:
+                            back = true;
+                        break;
+                        default:
+                                System.out.println("Input is not valid");
+                        break;
+                    }
+                    } while (!back);
+                    break;
+
+
+
+                case 3:
+                    System.out.println("");
+                    System.out.println("Schedule List: ");
+                    edit.previewJadwalDokter();
+                    break;
+                case 0:
+                    exit = true;
+                    System.out.println("Out to Menu");
+                    System.out.println("");
+                    break;
+                default:
+                    System.out.println("Input is not valid");
+                    break;
+            }
+        } while (!exit);
                 break;
                 
                 case 0:                            
@@ -144,7 +261,7 @@ public class UserManager {
             System.out.println("5. Book Of Appointment Patiens");
             
             //tambahanin disini sesuai dengan fitur masing masing
-            System.out.println("6. logout");
+            System.out.println("0. logout");
             System.out.print("Choose an option: ");
             choice = scanner.nextInt();
             scanner.nextLine();
@@ -179,9 +296,10 @@ public class UserManager {
                 break;
                 case 5:
                 //Adib
+                    
                 break;
                 
-                case 6:                            
+                case 0:                            
                 System.out.println("Logout successful!");
                 break;
                 default:
