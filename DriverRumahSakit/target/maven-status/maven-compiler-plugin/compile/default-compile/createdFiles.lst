@@ -1,9 +1,11 @@
 user\User.class
 user\Patient.class
 user\Admin.class
+user\DataEditor.class
 userManagementSystem\UserManager.class
 user\UserType.class
-userManagementSystem\UserManager$1.class
+user\UserBloodType.class
 com\mycompany\driverrumahsakit\DriverRumahSakit.class
 user\DoctorType.class
+user\UserGender.class
 user\Doctor.class
