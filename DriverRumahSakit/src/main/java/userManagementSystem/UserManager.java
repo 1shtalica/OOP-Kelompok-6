@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Scanner;
 import user.Admin;
 import user.Doctor;
+import user.DoctorType;
 import user.HospitalSystem;
 import user.Patient;
 import user.UserType;
@@ -159,6 +160,7 @@ public class UserManager {
                                     System.out.println("2. Delete");
                                     System.out.println("3. Update");
                                     System.out.println("0. Exit");
+                                    System.out.print("Choose an option: ");
                                     int x = scanner.nextInt();
                                     scanner.nextLine();
 
@@ -295,18 +297,100 @@ public class UserManager {
                     break;
                 case 5:
                     edit.previewJadwalDokter();
-                
+                    
+                    System.out.print("Enter schedule id to regist: ");
                     String id = scanner.nextLine();
                     edit.addSchedulePatient(patient, id, edit);
 
                     break;
                 case 6:
+                    boolean back = false;
+
+                    System.out.println("");
+                    System.out.println("==========Schedule==========");
+                    System.out.println("");
                     edit.previewJadwalDokter();
+
+                    do {
+                        System.out.println("");
+                        System.out.println("============================");
+                        System.out.println("");
+
+                        System.out.println("1. Regist MCU");
+                        System.out.println("2. Search by name");
+                        System.out.println("3. Filter by Specialization");
+                        System.out.println("4. View schedule doctor");
+                        System.out.println("0. Back");
+                        System.out.print("Choose an option: ");
+                        int choice2 = scanner.nextInt();
+                        scanner.nextLine();
+
+                        switch (choice2) {
+                            case 1:
+                                System.out.print("Enter schedule id to regist: ");
+                                String id2 = scanner.nextLine();
+                                edit.addSchedulePatient(patient, id2, edit);
+                                break;
+                            case 2:
+                                System.out.print("Search Doctor Name: ");
+                                String searchName = scanner.nextLine();
+                                boolean found = false;
+                                System.out.println("Search result:");
+                                for (EditSchedule prevJadwal : edit.getScheduleList()) {
+                                    if (prevJadwal.getVarDoctor().getUsername().equalsIgnoreCase(searchName)) {
+                                        System.out.println("Schedule ID: " + prevJadwal.getIdSchedule());
+                                        System.out.println("Doctor ID: " + prevJadwal.getVarDoctor().getDoctorID());
+                                        System.out.println("Doctor Name: " + prevJadwal.getVarDoctor().getUsername());
+                                        System.out.println("Specialization: " + prevJadwal.getVarDoctor().getDoctorType());
+                                        System.out.println("Max Patient: " + prevJadwal.getMaxPatient());
+                                        System.out.println("Day: " + prevJadwal.getDay());
+                                        System.out.println("Working Hour: " + prevJadwal.getWorkingHour());
+                                        System.out.println("");
+                                        found = true;
+                                    }
+                                }
+                                if (!found) {
+                                    System.out.println("No schedule found for the provided doctor name.");
+                                }
+                                break;
+                            case 3:
+                                for (DoctorType type : DoctorType.values()) {
+                                    System.out.println(type);
+                                }
+                                System.out.print("Enter Specialization: ");
+                                String filterSpecialization = scanner.nextLine();
+                                System.out.println("Filtered by " + filterSpecialization);
+                                for (EditSchedule prevJadwal : edit.getScheduleList()) {
+
+                                    if (prevJadwal.getVarDoctor().getDoctorType().toString().equalsIgnoreCase(filterSpecialization)) {
+                                        System.out.println("Schedule ID: " + prevJadwal.getIdSchedule());
+                                        System.out.println("Doctor ID: " + prevJadwal.getVarDoctor().getDoctorID());
+                                        System.out.println("Doctor Name: " + prevJadwal.getVarDoctor().getUsername());
+                                        System.out.println("Specialization: " + prevJadwal.getVarDoctor().getDoctorType());
+                                        System.out.println("Max Patient: " + prevJadwal.getMaxPatient());
+                                        System.out.println("Day: " + prevJadwal.getDay());
+                                        System.out.println("Working Hour: " + prevJadwal.getWorkingHour());
+                                        System.out.println("");
+                                    }
+                                }
+                                break;
+                            case 4:
+                                edit.previewJadwalDokter();
+                                break;
+                            case 0:
+                                back = true;
+                                System.out.println("Back to Menu");
+                                break;
+                            default:
+                                System.out.println("Input is not valid");
+                                break;
+                        }
+                    } while (!back);
                     break;
                 case 0:
                     System.out.println("Logout successful!");
                     choice = 0;
-                    
+
                     break;
                 default:
                     System.out.println("Invalid option. Please choose again.");

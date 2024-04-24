@@ -45,7 +45,7 @@
                                   <Component id="nameInput" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
                                   <Component id="IDinput" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="26" max="32767" attributes="0"/>
+                              <EmptySpace pref="23" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -304,7 +304,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="Clear">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Clear"/>
+        <Property name="text" type="java.lang.String" value="   Clear   "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClearActionPerformed"/>
