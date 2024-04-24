@@ -9,7 +9,6 @@ GuiForm\EditSchedule$9.class
 GuiForm\DoctorSchedule.class
 user\Hospital.class
 GuiForm\EditSchedule$4.class
-scheduleManagement\scheduleDoctor.class
 user\Admin.class
 user\DataEditor.class
 GuiForm\EditSchedule$2.class
