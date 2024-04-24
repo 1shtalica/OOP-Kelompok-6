@@ -128,9 +128,24 @@ public class EditSchedule {
                 break;
             }
         }
+        Patient existPatient = null;
+        if (patient != null){
+            
+        for (EditSchedule prevJadwal : arr.scheduleList){
+             if(prevJadwal.getSumPatient()>0){
+                for(int i =0; i < prevJadwal.getSumPatient(); i++){
+                if(patient.getPatientID()== prevJadwal.getVarPatient()[i].getPatientID()){
+                    existPatient =patient;
+                }
+               }
+            }
+        }
+        }
         
-
-        if (patient == null) {
+        if(existPatient != null){
+            System.out.println("you can't book 2 times in one schedule");
+        }
+        else if (patient == null) {
             System.out.println("Patient not found");
         } else {
             if (schedule != null && schedule.getSumPatient() < schedule.getMaxPatient()) {
