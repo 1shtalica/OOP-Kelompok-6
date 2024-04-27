@@ -7,8 +7,9 @@ package user;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
-import java.util.UUID;
+
 
 /**
  *
@@ -81,8 +82,15 @@ public class Patient extends User {
     
     
     private String generatePatientId() {
-        UUID uuid = UUID.randomUUID();
-        return uuid.toString();
+        Random random = new Random();
+        StringBuilder adminIDBuilder = new StringBuilder();
+
+        
+        for (int i = 0; i < 5; i++) {
+            adminIDBuilder.append(random.nextInt(10)); 
+        }
+
+        return adminIDBuilder.toString();
     }
 
     public Patient login(Map<Patient, String> userCredentials) {
@@ -253,6 +261,27 @@ public class Patient extends User {
         return userCredentials;
     }
     
+    public void listofPatient(Map<Patient, String> userCredentials) {
+    if (userCredentials.isEmpty()) {
+        System.out.println("No patients have been registered yet.");
+    } else {
+        System.out.println("List of registered patients:");
+        for (Patient patient : userCredentials.keySet()) {
+            System.out.println("----------------------------");
+            System.out.println("Patient ID: " + patient.getPatientID());
+            System.out.println("Full Name: " + patient.getName());
+            System.out.println("Username: " + patient.getUsername());
+            System.out.println("Email: " + patient.getEmail());
+            System.out.println("Phone Number: " + patient.getPhoneNumber());
+            System.out.println("Birth Date: " + patient.getBirtDate());
+            System.out.println("Gender: " + patient.getGender().name());
+            System.out.println("Address: " + patient.getAddress());
+            System.out.println("Blood Type: " + patient.getBloodType().name());
+            System.out.println("----------------------------");
+        }
+    }
+}
+    
     public String toString() {
         return "Data Diri:\n" +
                 "Username: " + getUsername() + "\n" +
@@ -277,7 +306,6 @@ public class Patient extends User {
             this.mcu[index].setResult(result);
         } else {
             System.out.println("MCU not valid");
-            
         }
     }
     
@@ -297,8 +325,5 @@ public class Patient extends User {
         this.setBloodType(bloodType);
     }
 }
-
-}
-
     
-
+}

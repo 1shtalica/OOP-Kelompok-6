@@ -4,10 +4,8 @@
  */
 package user;
 
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 
 /**
  *
@@ -109,9 +107,9 @@ public class Doctor extends User{
     System.out.println("Login failed. Incorrect username or password.");
     return null;
 }
-
     
-    public void updateDoctorData(String name, DoctorType doctorType, String phoneNumber, String address) {
+    
+        public void updateDoctorData(String name, DoctorType doctorType, String phoneNumber, String address) {
         
     if (name != "") {
         this.setName(name);
@@ -126,6 +124,5 @@ public class Doctor extends User{
         this.setAddress(address);
     }
 }
-
 
 }
