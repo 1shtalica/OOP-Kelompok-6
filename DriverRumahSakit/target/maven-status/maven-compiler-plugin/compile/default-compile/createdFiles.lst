@@ -5,7 +5,6 @@ scheduleManagement\EditSchedule.class
 GuiForm\DoctorSchedule$1.class
 GuiForm\EditSchedule$1.class
 GuiForm\GuiInsertPatient.class
-GuiForm\EditSchedule$9.class
 GuiForm\DoctorSchedule.class
 user\Hospital.class
 GuiForm\EditSchedule$4.class
@@ -22,7 +21,6 @@ user\User.class
 user\Patient.class
 userManagementSystem\UserManager.class
 GuiForm\EditSchedule.class
-GuiForm\EditSchedule$8.class
 user\HospitalSystem.class
 user\UserBloodType.class
 com\mycompany\driverrumahsakit\DriverRumahSakit.class
