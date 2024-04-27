@@ -245,13 +245,13 @@ public class UserManager {
     }
 
     public void patientMenu(Patient patient) {
-
+        
         Scanner scannerInt = new Scanner(System.in);
         HospitalSystem<Patient> hospitalSystem = new HospitalSystem<>(patient, patients, admins, doctors);
         int choice = -1;
-
+        
         while (choice != 0) {
-
+            
             System.out.println("welcome" + patient.getUsername() + " to rindang hospital");
             System.out.println("you are login as " + patient.getUserType());
             System.out.println("1. View Data ");
@@ -260,7 +260,7 @@ public class UserManager {
             System.out.println("4. View Doctor ");
             System.out.println("5. Book Of Appointment Patiens");
             System.out.println("6. View schedule");
-
+            
             //tambahanin disini sesuai dengan fitur masing masing
             System.out.println("0. logout");
             System.out.print("Choose an option: ");
@@ -280,7 +280,7 @@ public class UserManager {
                     hospitalSystem.removePatients(patient);
                     choice = 6;
                     break;
-
+                    
                 case 4:
                     System.out.println("Doctor List");
                     for (Doctor doctor : doctors.keySet()) {
