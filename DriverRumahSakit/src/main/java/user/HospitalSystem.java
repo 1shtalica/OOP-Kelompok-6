@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class HospitalSystem<T extends User> {
+public class HospitalSystem<T extends User> implements Hospital{
     private T user;
     private Map<Patient, String> patients;
     private Map<Admin, String> admins;
@@ -17,6 +17,7 @@ public class HospitalSystem<T extends User> {
         this.doctors = doctors;
     }
     
+    @Override
     public void removePatients(Patient patient) {
         patients.remove(patient);
         System.out.println("remove Data Succesfull");

@@ -112,8 +112,7 @@ public class UserManager {
                 break;
                 case 9:
                  hospitalSystem.removeAdmins(admin);
-                 choice = 03
-                         ; 
+                 choice = 0; 
                 break;
                 
                 case 0:                            
