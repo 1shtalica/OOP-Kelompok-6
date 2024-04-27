@@ -371,7 +371,6 @@ public class UserManager {
                 case 4:
                     //Adib5
                     break;
-
                 case 5:
                     System.out.println("Logout successful!");
                     break;
