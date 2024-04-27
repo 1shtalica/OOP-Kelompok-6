@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class HospitalSystem<T extends User> implements Hospital{
+public class HospitalSystem<T extends User> {
     private T user;
     private Map<Patient, String> patients;
     private Map<Admin, String> admins;
@@ -17,9 +17,8 @@ public class HospitalSystem<T extends User> implements Hospital{
         this.doctors = doctors;
     }
     
-
-
-    @Override
+    
+    
     public void removePatients(Patient patient) {
         patients.remove(patient);
         System.out.println("remove Data Succesfull");
@@ -70,11 +69,11 @@ public class HospitalSystem<T extends User> implements Hospital{
              System.out.println("username " + username + " Succesfull deleted" );
          }
     }
-
-
+    
+    
     /*
     Kodingan versi sebelum menjadi hasmhap
-
+    
 
     public List<Patient> getPatients() {
         return patients;
@@ -97,7 +96,7 @@ public class HospitalSystem<T extends User> implements Hospital{
         return null;
     }
 
-
+    
     public void resetPatientsId() {
         int id = 1;
         for (User user : patients) {
@@ -125,6 +124,6 @@ public class HospitalSystem<T extends User> implements Hospital{
             System.out.println(p);
         }
     }
-
+    
     */
 }

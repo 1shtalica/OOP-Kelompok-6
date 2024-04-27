@@ -1,40 +1,20 @@
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\RegisterPatient.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Admin.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\HospitalSystem.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\EditSchedule.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\User.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\userManagementSystem\UserManager.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\com\mycompany\driverrumahsakit\DriverRumahSakit.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Hospital.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\PatientMcu.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Doctor.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\GuiInsertPatient.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\UserBloodType.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\model\Config.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\UserGender.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\Register.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\DataEditor.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\DoctorType.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\scheduleManagement\EditSchedule.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Patient.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\WelcomeToRindangHospital.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\DoctorSchedule.java
-D:\praktikum kpl\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\UserType.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\UserType.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\userManagementSystem\UserManager.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\GUIViewDataPatient.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Admin.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\GUIPatient.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\GuiInsertPatient.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\User.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\UserGender.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\com\mycompany\driverrumahsakit\DriverRumahSakit.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Hospital.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\GUIViewDoctor.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Doctor.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\PatientMcu.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\HospitalSystem.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Patient.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\DoctorType.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\UserBloodType.java
-C:\Users\rinda\OneDrive\Documents\Project\OOP-Kelompok-6\DriverRumahSakit\src\main\java\model\Config.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\userManagementSystem\UserManager.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\com\mycompany\driverrumahsakit\DriverRumahSakit.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\GuiForm\GuiInsertPatient.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\user\Doctor.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\user\User.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\user\HospitalSystem.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\user\Patient.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\user\UserGender.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\user\UserBloodType.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\model\Config.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\user\PatientMcu.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\GuiForm\EditSchedule.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\user\DataEditor.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\user\DoctorType.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\GuiForm\DoctorSchedule.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\scheduleManagement\EditSchedule.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\user\Hospital.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\user\UserType.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\GuiForm\AdminDashboard.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\user\Admin.java
