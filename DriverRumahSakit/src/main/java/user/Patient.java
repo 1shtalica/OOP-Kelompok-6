@@ -7,8 +7,9 @@ package user;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
-import java.util.UUID;
+
 
 /**
  *
@@ -81,8 +82,15 @@ public class Patient extends User {
     
     
     private String generatePatientId() {
-        UUID uuid = UUID.randomUUID();
-        return uuid.toString();
+        Random random = new Random();
+        StringBuilder adminIDBuilder = new StringBuilder();
+
+        
+        for (int i = 0; i < 5; i++) {
+            adminIDBuilder.append(random.nextInt(10)); 
+        }
+
+        return adminIDBuilder.toString();
     }
 
     public Patient login(Map<Patient, String> userCredentials) {
@@ -274,6 +282,16 @@ public class Patient extends User {
     }
 }
     
+    public String toString() {
+        return "Data Diri:\n" +
+                "Username: " + getUsername() + "\n" +
+                "Nomor Telepon: " + getPhoneNumber() + "\n" +
+                "Tipe Pengguna: " + getUserType() + "\n" +
+                "Email: " + getEmail() + "\n" +
+                "ID Pasien: " + patientID + "\n";
+                
+    }
+    
 
     public void addMcu(String date, String disease, String result) {
         PatientMcu data = new PatientMcu(date, disease, result);
@@ -290,5 +308,22 @@ public class Patient extends User {
             System.out.println("MCU not valid");
         }
     }
+    
+    
+
+    public void updatePatientData(String name, String phoneNumber, String address, UserBloodType bloodType) {
+    if (name != "") {
+        this.setUsername(name);
+    }
+    if (phoneNumber != "") {
+        this.setPhoneNumber(phoneNumber);
+    }
+    if (address != "") {
+        this.setAddress(address);
+    }
+    if (bloodType != null) {
+        this.setBloodType(bloodType);
+    }
+}
     
 }

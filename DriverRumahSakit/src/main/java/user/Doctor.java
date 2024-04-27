@@ -107,4 +107,22 @@ public class Doctor extends User{
     System.out.println("Login failed. Incorrect username or password.");
     return null;
 }
+    
+    
+        public void updateDoctorData(String name, DoctorType doctorType, String phoneNumber, String address) {
+        
+    if (name != "") {
+        this.setName(name);
+    }
+    if (doctorType != null) {
+        this.setDoctorType(doctorType);
+    }
+    if (phoneNumber != "") {
+        this.setPhoneNumber(phoneNumber);
+    }
+    if (address != "") {
+        this.setAddress(address);
+    }
+}
+
 }

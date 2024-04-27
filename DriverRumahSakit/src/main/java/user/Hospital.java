@@ -3,7 +3,7 @@ package user;
 import java.util.Map;
 
 public interface Hospital {
-    
+
     public  void removePatients(Patient patient);
     public void removeDoctors(Doctor doctor) ;
     public  void removeAdmins(Admin admin);
