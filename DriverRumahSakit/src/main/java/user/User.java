@@ -9,17 +9,28 @@ package user;
  * @author kevin
  */
 public abstract class User {
-
+    
     private String username;
+    private String name;
     private String phoneNumber;
     private String email;
     private UserType userType;
 
-    public User(String username, String phoneNumber, UserType userType, String email) {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+   
+
+    public User(String username,String name, String phoneNumber, UserType userType, String email) {
         this.username = username;
         this.phoneNumber = phoneNumber;
         this.userType = userType;
         this.email = email;
+        this.name = name;
     }
 
     public String getEmail() {
