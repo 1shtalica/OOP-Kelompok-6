@@ -33,19 +33,17 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="enterDoctorID" max="32767" attributes="0"/>
-                          <Component id="enterDoctorname" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="chooseADay" min="-2" pref="160" max="-2" attributes="0"/>
-                                      <Component id="selectSession" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                                      <Component id="dayChoose" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="sessionChoice" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="nameInput" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                                  <Component id="IDinput" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="labelStart" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="chooseADay" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="dayChoose" alignment="0" pref="226" max="32767" attributes="0"/>
+                                  <Component id="IDinput" alignment="0" pref="226" max="32767" attributes="0"/>
+                                  <Component id="inputStart" max="32767" attributes="0"/>
+                                  <Component id="jLabel1" max="32767" attributes="0"/>
+                                  <Component id="inputEnd" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="23" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -75,22 +73,20 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Title" min="-2" pref="26" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="Add" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="update" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="Remove" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="Clear" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="Add" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="update" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="Remove" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="Clear" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPane2" min="-2" pref="217" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane2" min="-2" pref="217" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="enterDoctorname" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="nameInput" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Component id="enterDoctorID" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="IDinput" min="-2" max="-2" attributes="0"/>
@@ -98,10 +94,14 @@
                       <Component id="chooseADay" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="dayChoose" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                      <Component id="selectSession" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="labelStart" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="sessionChoice" min="-2" max="-2" attributes="0"/>
+                      <Component id="inputStart" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="inputEnd" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="24" max="32767" attributes="0"/>
@@ -121,30 +121,15 @@
         <Property name="text" type="java.lang.String" value="Edit the Doctor&apos;s Schedule"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="enterDoctorname">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Enter the doctor&apos;s name"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="enterDoctorID">
       <Properties>
         <Property name="text" type="java.lang.String" value="Enter the doctor&apos;s ID"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="nameInput">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameInputActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="IDinput">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDinputActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="selectSession">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Select Session"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="chooseADay">
       <Properties>
@@ -172,24 +157,6 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="sessionChoice">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="None"/>
-            <StringItem index="1" value="Morning"/>
-            <StringItem index="2" value="Afternoon"/>
-            <StringItem index="3" value="Night"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sessionChoiceActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -201,11 +168,11 @@
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="6" rowCount="4">
+                <Column editable="true" title="Schedule ID" type="java.lang.Object"/>
                 <Column editable="true" title="Doctor&apos;s Name" type="java.lang.Object"/>
                 <Column editable="true" title="Doctor&apos;s ID" type="java.lang.Object"/>
                 <Column editable="true" title="Specialization" type="java.lang.Object"/>
                 <Column editable="true" title="Day" type="java.lang.Object"/>
-                <Column editable="true" title="Session" type="java.lang.Object"/>
                 <Column editable="true" title="Working Hour" type="java.lang.Object"/>
               </Table>
             </Property>
@@ -288,7 +255,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="Add">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Add"/>
+        <Property name="text" type="java.lang.String" value="   Add   "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddActionPerformed"/>
@@ -296,7 +263,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="Remove">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Remove"/>
+        <Property name="text" type="java.lang.String" value=" Remove "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RemoveActionPerformed"/>
@@ -304,7 +271,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="Clear">
       <Properties>
-        <Property name="text" type="java.lang.String" value="   Clear   "/>
+        <Property name="text" type="java.lang.String" value="    Clear    "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClearActionPerformed"/>
@@ -312,11 +279,25 @@
     </Component>
     <Component class="javax.swing.JToggleButton" name="update">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Update"/>
+        <Property name="text" type="java.lang.String" value="  Update  "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelStart">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Enter start working hour"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="inputStart">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Enter end working hour"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="inputEnd">
     </Component>
   </SubComponents>
 </Form>

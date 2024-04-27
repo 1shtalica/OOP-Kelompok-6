@@ -357,9 +357,13 @@ public class UserManager {
                                 for (DoctorType type : DoctorType.values()) {
                                     System.out.println(type);
                                 }
+                                
+                                System.out.println("Input must be all capital!");
                                 System.out.print("Enter Specialization: ");
                                 String filterSpecialization = scanner.nextLine();
                                 System.out.println("Filtered by " + filterSpecialization);
+                                System.out.println("");
+                                
                                 for (EditSchedule prevJadwal : edit.getScheduleList()) {
 
                                     if (prevJadwal.getVarDoctor().getDoctorType().toString().equalsIgnoreCase(filterSpecialization)) {

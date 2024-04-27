@@ -27,14 +27,10 @@ public class EditSchedule extends javax.swing.JFrame {
     private void initComponents() {
 
         Title = new javax.swing.JLabel();
-        enterDoctorname = new javax.swing.JLabel();
         enterDoctorID = new javax.swing.JLabel();
-        nameInput = new javax.swing.JTextField();
         IDinput = new javax.swing.JTextField();
-        selectSession = new javax.swing.JLabel();
         chooseADay = new javax.swing.JLabel();
         dayChoose = new javax.swing.JComboBox<>();
-        sessionChoice = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         prevSchedule = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -43,6 +39,10 @@ public class EditSchedule extends javax.swing.JFrame {
         Remove = new javax.swing.JButton();
         Clear = new javax.swing.JButton();
         update = new javax.swing.JToggleButton();
+        labelStart = new javax.swing.JLabel();
+        inputStart = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        inputEnd = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,15 +50,7 @@ public class EditSchedule extends javax.swing.JFrame {
         Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Title.setText("Edit the Doctor's Schedule");
 
-        enterDoctorname.setText("Enter the doctor's name");
-
         enterDoctorID.setText("Enter the doctor's ID");
-
-        nameInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameInputActionPerformed(evt);
-            }
-        });
 
         IDinput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,21 +58,12 @@ public class EditSchedule extends javax.swing.JFrame {
             }
         });
 
-        selectSession.setText("Select Session");
-
         chooseADay.setText("Choose a day");
 
         dayChoose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }));
         dayChoose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dayChooseActionPerformed(evt);
-            }
-        });
-
-        sessionChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Night" }));
-        sessionChoice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sessionChoiceActionPerformed(evt);
             }
         });
 
@@ -92,7 +75,7 @@ public class EditSchedule extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Doctor's Name", "Doctor's ID", "Specialization", "Day", "Session", "Working Hour"
+                "Schedule ID", "Doctor's Name", "Doctor's ID", "Specialization", "Day", "Working Hour"
             }
         ));
         jScrollPane1.setViewportView(prevSchedule);
@@ -110,33 +93,37 @@ public class EditSchedule extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(prevDocList);
 
-        Add.setText("Add");
+        Add.setText("   Add   ");
         Add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddActionPerformed(evt);
             }
         });
 
-        Remove.setText("Remove");
+        Remove.setText(" Remove ");
         Remove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RemoveActionPerformed(evt);
             }
         });
 
-        Clear.setText("   Clear   ");
+        Clear.setText("    Clear    ");
         Clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ClearActionPerformed(evt);
             }
         });
 
-        update.setText("Update");
+        update.setText("  Update  ");
         update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateActionPerformed(evt);
             }
         });
+
+        labelStart.setText("Enter start working hour");
+
+        jLabel1.setText("Enter end working hour");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,17 +138,16 @@ public class EditSchedule extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(enterDoctorID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(enterDoctorname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(chooseADay, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(selectSession, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(dayChoose, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(sessionChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(IDinput, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(labelStart, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(chooseADay, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dayChoose, javax.swing.GroupLayout.Alignment.LEADING, 0, 226, Short.MAX_VALUE)
+                                    .addComponent(IDinput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                                    .addComponent(inputStart)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(inputEnd))
+                                .addGap(0, 10, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(62, 62, 62)
@@ -182,21 +168,18 @@ public class EditSchedule extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(Add)
+                            .addGap(38, 38, 38)
+                            .addComponent(update)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Remove)
+                            .addGap(38, 38, 38)
+                            .addComponent(Clear))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Add)
-                        .addGap(38, 38, 38)
-                        .addComponent(update)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Remove)
-                        .addGap(42, 42, 42)
-                        .addComponent(Clear))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(enterDoctorname)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(enterDoctorID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(IDinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,10 +187,14 @@ public class EditSchedule extends javax.swing.JFrame {
                         .addComponent(chooseADay)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dayChoose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17)
-                        .addComponent(selectSession)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labelStart)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sessionChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(inputStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inputEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -221,17 +208,9 @@ public class EditSchedule extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_IDinputActionPerformed
 
-    private void nameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameInputActionPerformed
-
     private void dayChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dayChooseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dayChooseActionPerformed
-
-    private void sessionChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sessionChoiceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sessionChoiceActionPerformed
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         // TODO add your handling code here:
@@ -296,14 +275,14 @@ public class EditSchedule extends javax.swing.JFrame {
     private javax.swing.JLabel chooseADay;
     private javax.swing.JComboBox<String> dayChoose;
     private javax.swing.JLabel enterDoctorID;
-    private javax.swing.JLabel enterDoctorname;
+    private javax.swing.JTextField inputEnd;
+    private javax.swing.JTextField inputStart;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField nameInput;
+    private javax.swing.JLabel labelStart;
     private javax.swing.JTable prevDocList;
     private javax.swing.JTable prevSchedule;
-    private javax.swing.JLabel selectSession;
-    private javax.swing.JComboBox<String> sessionChoice;
     private javax.swing.JToggleButton update;
     // End of variables declaration//GEN-END:variables
 }
