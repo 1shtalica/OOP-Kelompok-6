@@ -70,7 +70,7 @@ public class EditSchedule {
         return false;
     }
 
-    public boolean cekIDDoctor(String id) {
+    public boolean checkDoctorID(String id) {
         for (Doctor dokter : doctorList) {
             if (dokter.getDoctorID().equals(id)) {
                 return true;
@@ -101,7 +101,7 @@ public class EditSchedule {
                 System.out.println("List Empty");
             } else {
                 for (EditSchedule jadwal : scheduleList) {
-                    if (jadwal.checkDoctorName(doctor.getUsername()) && jadwal.getDay().equalsIgnoreCase(day)) {
+                    if (jadwal.checkDoctorID(doctor.getDoctorID()) && jadwal.getDay().equalsIgnoreCase(day)) {
                         isReady = true;
                         break;
                     }
@@ -128,9 +128,24 @@ public class EditSchedule {
                 break;
             }
         }
+        Patient existPatient = null;
+        if (patient != null){
+            
+        for (EditSchedule prevJadwal : arr.scheduleList){
+             if(prevJadwal.getSumPatient()>0){
+                for(int i =0; i < prevJadwal.getSumPatient(); i++){
+                if(patient.getPatientID()== prevJadwal.getVarPatient()[i].getPatientID()){
+                    existPatient =patient;
+                }
+               }
+            }
+        }
+        }
         
-
-        if (patient == null) {
+        if(existPatient != null){
+            System.out.println("you can't book 2 times in one schedule");
+        }
+        else if (patient == null) {
             System.out.println("Patient not found");
         } else {
             if (schedule != null && schedule.getSumPatient() < schedule.getMaxPatient()) {
@@ -177,6 +192,7 @@ public class EditSchedule {
             System.out.println("Saturday");
             System.out.print("Enter day: ");
             String newDay = scanner.nextLine();
+            System.out.print("Enter new working hour: ");
             String workingHour = scanner.nextLine();
             
             schedule.setDay(newDay);
@@ -212,10 +228,10 @@ public class EditSchedule {
         }
     }*/
     public Doctor viewSchedule(Map<Doctor, String> doctor) {
-        System.out.println("input username");
-        String username = scanner.nextLine();
+        System.out.println("Enter the doctor's ID");
+        String id = scanner.nextLine();
         for (Map.Entry<Doctor, String> entry : doctor.entrySet()) {
-            if (username.equals(entry.getKey().getUsername())) {
+            if (id.equals(entry.getKey().getDoctorID())) {
 
                 return entry.getKey();
 
@@ -225,7 +241,8 @@ public class EditSchedule {
         System.out.println("not found");
         return null;
     }
-
+    
+    
     //==========GETTER-SETTER SECTION==========
     public int getMaxPatient() {
         return maxPatient;
