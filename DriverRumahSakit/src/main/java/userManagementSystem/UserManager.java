@@ -193,7 +193,7 @@ public class UserManager {
         Scanner scannerInt = new Scanner(System.in);
         int choice = 0;
         
-        while(choice != 4){
+        while(choice != 5){
 
             System.out.println("welcome" +doctor.getUsername()+ " to rindang hospital");
             System.out.println("you are login as "+doctor.getUserType());
