@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\userManagementSystem\UserManager.java
 C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\com\mycompany\driverrumahsakit\DriverRumahSakit.java
 C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\GuiForm\GuiInsertPatient.java
@@ -18,3 +19,31 @@ C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 wit
 C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\user\UserType.java
 C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\GuiForm\AdminDashboard.java
 C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\Group\OOP-Kelompok-6 with gui\DriverRumahSakit\src\main\java\user\Admin.java
+=======
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\WelcomeToRindangHospital.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\model\Config.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\GUIViewDataPatient.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\DoctorType.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\scheduleManagement\EditSchedule.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Patient.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\HospitalSystem.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Admin.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\EditSchedule.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\PatientMcu.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\GUIPatient.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\UserGender.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\GuiInsertPatient.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\AdminDashboard.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\DoctorSchedule.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Doctor.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\DataEditor.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\com\mycompany\driverrumahsakit\DriverRumahSakit.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\User.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\userManagementSystem\UserManager.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\UserBloodType.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\RegisterPatient.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\Hospital.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\Register.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\GuiForm\GUIViewDoctor.java
+C:\Users\LENOVO\Downloads\skool tugas\Semester 4\PBO\tp\OOP-Kelompok-6\DriverRumahSakit\src\main\java\user\UserType.java
+>>>>>>> Stashed changes

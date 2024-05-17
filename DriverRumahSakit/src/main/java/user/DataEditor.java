@@ -7,6 +7,7 @@ package user;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 
 
@@ -35,50 +36,54 @@ public class DataEditor<T extends User> {
     }
     
     public void input(){
-        if (user instanceof Doctor){
-            System.out.println("(press enter to leave data as it was)");
-            System.out.println("Input name: ");
-            String name = scanner.nextLine();
-            System.out.println("Input phoneNumber: ");
-            String phone = scanner.nextLine();
-            System.out.println("Input address: ");
-            String address = scanner.nextLine();
-            System.out.println("Select doctor type:");
-            DoctorType[] doctorTypes = DoctorType.values();
-            for (int i = 0; i < doctorTypes.length; i++) {
+        try{
+        if (user instanceof Doctor) {
+    try {
+        System.out.println("(press enter to leave data as it was)");
+        System.out.println("Input name: ");
+        String name = scanner.nextLine();
+        System.out.println("Input phoneNumber: ");
+        String phone = scanner.nextLine();
+        System.out.println("Input address: ");
+        String address = scanner.nextLine();
+        System.out.println("Select doctor type:");
+        DoctorType[] doctorTypes = DoctorType.values();
+        for (int i = 0; i < doctorTypes.length; i++) {
             System.out.println((i + 1) + ". " + doctorTypes[i].name());
-            }
-
-   
-            int doctorTypeIndex = -1;
-            boolean validDoctorTypeIndex = false;
-            while (!validDoctorTypeIndex) {
-                 System.out.print("Enter the number corresponding to the doctor type or type 0 for the same value: ");
-                    doctorTypeIndex = scanner.nextInt() - 1;
-            if(doctorTypeIndex ==0){
-                        validDoctorTypeIndex = true;
-                    }
-
-        
-        if (doctorTypeIndex >= -1 && doctorTypeIndex < doctorTypes.length) {
-            validDoctorTypeIndex = true;
-        } else {
-            System.out.println("Invalid index. Please enter a number between 1 and " + doctorTypes.length + ".");
         }
-    }
-    scanner.nextLine(); 
-    DoctorType doctorType = null;
-    if(doctorTypeIndex != -1){
-         doctorType = doctorTypes[doctorTypeIndex];
-    }
-    
-    updateDoctorData(name, phone, address, doctorType);
-    
 
-          
-            
-        } else if (user instanceof Patient){
-           
+        int doctorTypeIndex = -1;
+        boolean validDoctorTypeIndex = false;
+        while (!validDoctorTypeIndex) {
+            System.out.print("Enter the number corresponding to the doctor type or type 0 for the same value: ");
+            try {
+                doctorTypeIndex = scanner.nextInt() - 1;
+                if (doctorTypeIndex == 0) {
+                    validDoctorTypeIndex = true;
+                }
+
+                if (doctorTypeIndex >= -1 && doctorTypeIndex < doctorTypes.length) {
+                    validDoctorTypeIndex = true;
+                } else {
+                    System.out.println("Invalid index. Please enter a number between 1 and " + doctorTypes.length + ".");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                scanner.nextLine(); // Consume the invalid input
+            }
+        }
+        scanner.nextLine(); // Consume newline character after nextInt()
+        DoctorType doctorType = null;
+        if (doctorTypeIndex != -1) {
+            doctorType = doctorTypes[doctorTypeIndex];
+        }
+
+        updateDoctorData(name, phone, address, doctorType);
+    } catch (Exception e) {
+        System.out.println("An error occurred: " + e.getMessage());
+    }
+}   else if (user instanceof Patient) {
+    try {
         System.out.println("(press enter to leave data as it was)");
         System.out.println("Input name: ");
         String name = scanner.nextLine();
@@ -88,46 +93,52 @@ public class DataEditor<T extends User> {
         String address = scanner.nextLine();
         System.out.println("Input blood type:");
         UserBloodType[] bloodTypes = UserBloodType.values();
-            for (int i = 0; i < bloodTypes.length; i++) {
+        for (int i = 0; i < bloodTypes.length; i++) {
             System.out.println((i + 1) + ". " + bloodTypes[i].name());
-            }
-
-   
-            int bloodIndex = -1;
-            boolean validBloodTypeIndex = false;
-            while (!validBloodTypeIndex) {
-                 System.out.print("Enter the number corresponding to the blood type or type 0 for the same value: ");
-                 
-                    bloodIndex = scanner.nextInt() - 1;
-                    if(bloodIndex ==0){
-                        validBloodTypeIndex = true;
-                    }
-
-        
-        if (bloodIndex >= -1 && bloodIndex < bloodTypes.length) {
-            validBloodTypeIndex = true;
-        } else {
-            System.out.println("Invalid index. Please enter a number between 1 and " + bloodTypes.length + ".");
         }
+
+        int bloodIndex = -1;
+        boolean validBloodTypeIndex = false;
+        while (!validBloodTypeIndex) {
+            System.out.print("Enter the number corresponding to the blood type or type 0 for the same value: ");
+            try {
+                bloodIndex = scanner.nextInt() - 1;
+                if (bloodIndex == 0) {
+                    validBloodTypeIndex = true;
+                }
+
+                if (bloodIndex >= -1 && bloodIndex < bloodTypes.length) {
+                    validBloodTypeIndex = true;
+                } else {
+                    System.out.println("Invalid index. Please enter a number between 1 and " + bloodTypes.length + ".");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                scanner.nextLine(); // Consume the invalid input
+            }
+        }
+        scanner.nextLine(); // Consume newline character after nextInt()
+        UserBloodType bloodType = null;
+        if (bloodIndex != -1) {
+            bloodType = bloodTypes[bloodIndex];
+        }
+
+        updatePatientData(name, phone, address, bloodType);
+    } catch (Exception e) {
+        System.out.println("An error occurred: " + e.getMessage());
     }
-    scanner.nextLine(); 
-    UserBloodType bloodType = null;
-    if(bloodIndex != -1){
-         bloodType = bloodTypes[bloodIndex];
-    }
-    
-    updatePatientData(name, phone, address, bloodType);
-    } else if (user instanceof Admin){
+
+    } else if (user instanceof Admin) {
+    try {
         System.out.println("1. Edit your data");
         System.out.println("2. Edit doctor data");
         System.out.println("3. Edit patient data");
-        
+
         int option = scanner.nextInt();
-        scanner.nextLine(); 
-        
+        scanner.nextLine();
+
         switch (option) {
             case 1:
-                
                 System.out.println("(press enter to leave data as it was)");
                 System.out.println("Input name: ");
                 String name = scanner.nextLine();
@@ -139,99 +150,110 @@ public class DataEditor<T extends User> {
                 updateAdminData(name, phone, email);
                 break;
             case 2:
-    System.out.println("Select a doctor to edit:");
-    Doctor selectedDoctor = viewSchedule(doctors); 
-    if (selectedDoctor != null) {
-        System.out.println("(press enter to leave data as it was)");
-        System.out.println("Input name: ");
-        name = scanner.nextLine();
-        System.out.println("Input phoneNumber: ");
-        phone = scanner.nextLine();
-        System.out.println("Input address: ");
-        String address = scanner.nextLine();
-        
-        DoctorType[] doctorTypes = DoctorType.values();
-        for (int i = 0; i < doctorTypes.length; i++) {
-            System.out.println((i + 1) + ". " + doctorTypes[i].name());
-        }
+                System.out.println("Select a doctor to edit:");
+                Doctor selectedDoctor = viewSchedule(doctors);
+                if (selectedDoctor != null) {
+                    System.out.println("(press enter to leave data as it was)");
+                    System.out.println("Input name: ");
+                    name = scanner.nextLine();
+                    System.out.println("Input phoneNumber: ");
+                    phone = scanner.nextLine();
+                    System.out.println("Input address: ");
+                    String address = scanner.nextLine();
 
-        int doctorTypeIndex = -1;
-        boolean validDoctorTypeIndex = false;
-        while (!validDoctorTypeIndex) {
-            System.out.print("Enter the number corresponding to the doctor type or type 0 for the same value: ");
-            doctorTypeIndex = scanner.nextInt() - 1;
-            if (doctorTypeIndex == 0) {
-                validDoctorTypeIndex = true;
-            }
+                    DoctorType[] doctorTypes = DoctorType.values();
+                    for (int i = 0; i < doctorTypes.length; i++) {
+                        System.out.println((i + 1) + ". " + doctorTypes[i].name());
+                    }
 
-            if (doctorTypeIndex >= -1 && doctorTypeIndex < doctorTypes.length) {
-                validDoctorTypeIndex = true;
-            } else {
-                System.out.println("Invalid index. Please enter a number between 1 and " + doctorTypes.length + ".");
-            }
-        }
-        scanner.nextLine();
-        DoctorType doctorType = null;
-        if (doctorTypeIndex != -1) {
-            doctorType = doctorTypes[doctorTypeIndex];
-        }
-        
-        editDoctorData(selectedDoctor, name, phone, address, doctorType);
-    }
-    break;
+                    int doctorTypeIndex = -1;
+                    boolean validDoctorTypeIndex = false;
+                    while (!validDoctorTypeIndex) {
+                        System.out.print("Enter the number corresponding to the doctor type or type 0 for the same value: ");
+                        try {
+                            doctorTypeIndex = scanner.nextInt() - 1;
+                            if (doctorTypeIndex == 0) {
+                                validDoctorTypeIndex = true;
+                            }
 
+                            if (doctorTypeIndex >= -1 && doctorTypeIndex < doctorTypes.length) {
+                                validDoctorTypeIndex = true;
+                            } else {
+                                System.out.println("Invalid index. Please enter a number between 1 and " + doctorTypes.length + ".");
+                            }
+                        } catch (InputMismatchException e) {
+                            System.out.println("Invalid input. Please enter a valid number.");
+                            scanner.nextLine(); // Consume the invalid input
+                        }
+                    }
+                    scanner.nextLine(); // Consume newline character after nextInt()
+                    DoctorType doctorType = null;
+                    if (doctorTypeIndex != -1) {
+                        doctorType = doctorTypes[doctorTypeIndex];
+                    }
+
+                    editDoctorData(selectedDoctor, name, phone, address, doctorType);
+                }
+                break;
             case 3:
-                   System.out.println("Select a patient to edit:");
-                    Patient selectedPatient = viewPatients(patients); 
-                    if (selectedPatient != null) {
-                        System.out.println("(press enter to leave data as it was)");
-                        System.out.println("Input name: ");
-                        name = scanner.nextLine();
-                        System.out.println("Input phoneNumber: ");
-                        phone = scanner.nextLine();
-                        System.out.println("Input address: ");
-                        String address = scanner.nextLine();
-                        System.out.println("Input blood type:");
-                        UserBloodType[] bloodTypes = UserBloodType.values();
-            for (int i = 0; i < bloodTypes.length; i++) {
-            System.out.println((i + 1) + ". " + bloodTypes[i].name());
-            }
-
-   
-            int bloodIndex = -1;
-            boolean validBloodTypeIndex = false;
-            while (!validBloodTypeIndex) {
-                 System.out.print("Enter the number corresponding to the doctor type or type 0 for the same value: ");
-                 
-                    bloodIndex = scanner.nextInt() - 1;
-                    if(bloodIndex ==0){
-                        validBloodTypeIndex = true;
+                System.out.println("Select a patient to edit:");
+                Patient selectedPatient = viewPatients(patients);
+                if (selectedPatient != null) {
+                    System.out.println("(press enter to leave data as it was)");
+                    System.out.println("Input name: ");
+                    name = scanner.nextLine();
+                    System.out.println("Input phoneNumber: ");
+                    phone = scanner.nextLine();
+                    System.out.println("Input address: ");
+                    String address = scanner.nextLine();
+                    System.out.println("Input blood type:");
+                    UserBloodType[] bloodTypes = UserBloodType.values();
+                    for (int i = 0; i < bloodTypes.length; i++) {
+                        System.out.println((i + 1) + ". " + bloodTypes[i].name());
                     }
 
-        
-        if (bloodIndex >= -1 && bloodIndex < bloodTypes.length) {
-            validBloodTypeIndex = true;
-        } else {
-            System.out.println("Invalid index. Please enter a number between 1 and " + bloodTypes.length + ".");
+                    int bloodIndex = -1;
+                    boolean validBloodTypeIndex = false;
+                    while (!validBloodTypeIndex) {
+                        System.out.print("Enter the number corresponding to the blood type or type 0 for the same value: ");
+                        try {
+                            bloodIndex = scanner.nextInt() - 1;
+                            if (bloodIndex == 0) {
+                                validBloodTypeIndex = true;
+                            }
+
+                            if (bloodIndex >= -1 && bloodIndex < bloodTypes.length) {
+                                validBloodTypeIndex = true;
+                            } else {
+                                System.out.println("Invalid index. Please enter a number between 1 and " + bloodTypes.length + ".");
+                            }
+                        } catch (InputMismatchException e) {
+                            System.out.println("Invalid input. Please enter a valid number.");
+                            scanner.nextLine(); // Consume the invalid input
+                        }
+                    }
+                    scanner.nextLine(); // Consume newline character after nextInt()
+                    UserBloodType bloodType = null;
+                    if (bloodIndex != -1) {
+                        bloodType = bloodTypes[bloodIndex];
+                    }
+
+                    updatePatientData(name, phone, address, bloodType);
+                }
+                break;
+            default:
+                System.out.println("Invalid option.");
         }
+    } catch (Exception e) {
+        System.out.println("An error occurred: " + e.getMessage());
     }
-    scanner.nextLine(); 
-    UserBloodType bloodType = null;
-    if(bloodIndex != -1){
-         bloodType = bloodTypes[bloodIndex];
-    }
-    
-    updatePatientData(name, phone, address, bloodType);
-                    }
-                                break;
-                            default:
-                                System.out.println("Invalid option.");
+} else {
+    System.out.println("User type not recognized.");
+}
 
-        
-    }
-    }else {
-        System.out.println("User type not recognized.");
-    }
+        } catch(Exception e){
+            System.out.println("An error occured: "+ e.getMessage());
+        }
         
     }
 
@@ -305,36 +327,38 @@ public class DataEditor<T extends User> {
     
     
 
-public Doctor viewSchedule(Map<Doctor, String> doctor) {
-    System.out.println("input username");
-    String username = scanner.nextLine();
-      for (Map.Entry<Doctor, String> entry : doctor.entrySet()) {
-            if(username.equals(entry.getKey().getUsername())) {
-             
-             return entry.getKey();
-             
+    public Doctor viewSchedule(Map<Doctor, String> doctor) {
+        try {
+            System.out.println("Input username:");
+            String username = scanner.nextLine();
+            for (Map.Entry<Doctor, String> entry : doctor.entrySet()) {
+                if (username.equals(entry.getKey().getUsername())) {
+                    return entry.getKey();
+                }
             }
-          
+            System.out.println("Doctor not found.");
+            return null;
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            return null;
         }
-      System.out.println("not found");
-      return null;
-}
+    }
 
-public Patient viewPatients(Map<Patient, String> patients) {
-      System.out.println("input username");
-    String username = scanner.nextLine();
-      for (Map.Entry<Patient, String> entry : patients.entrySet()) {
-            if(username.equals(entry.getKey().getUsername())) {
-             
-             return entry.getKey();
-             
+    public Patient viewPatients(Map<Patient, String> patients) {
+        try {
+            System.out.println("Input username:");
+            String username = scanner.nextLine();
+            for (Map.Entry<Patient, String> entry : patients.entrySet()) {
+                if (username.equals(entry.getKey().getUsername())) {
+                    return entry.getKey();
+                }
             }
-          
+            System.out.println("Patient not found.");
+            return null;
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            return null;
         }
-      System.out.println("not found");
-      return null;
-}
-
-    
+    }
 }
 
